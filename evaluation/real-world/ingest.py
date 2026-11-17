@@ -21,6 +21,7 @@ PRIVATE = Path.home() / ".local/share/scam-shield/evaluation"
 MAX_ARCHIVE_BYTES = 1_000_000
 MAX_HTML_BYTES = 16_000_000
 MAX_TEXT_CHARS = 12_000
+MAX_TITLE_CHARS = 500
 SKIP_TAGS = {"script", "style", "template", "noscript", "svg"}
 VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
 BLOCK_TAGS = {"p", "div", "br", "li", "section", "article", "header", "footer", "h1", "h2", "h3", "h4", "h5", "h6", "tr"}
@@ -34,6 +35,15 @@ def fetch(url: str) -> bytes:
 
 def host(url: str) -> str:
     return (urlsplit(url).hostname or "").lower()
+
+
+def utf16_prefix(value: str, limit: int) -> tuple[str, bool]:
+    units = 0
+    for index, char in enumerate(value):
+        units += 2 if ord(char) > 0xFFFF else 1
+        if units > limit:
+            return value[:index], True
+    return value, False
 
 
 class PageParser(HTMLParser):
@@ -99,6 +109,8 @@ def snapshot_from_html(url: str, html: str) -> dict:
     parser.feed(html)
     page_host = host(url)
     text = re.sub(r"\s*\n\s*", "\n", "".join(parser.text)).strip()
+    bounded_text, truncated = utf16_prefix(text, MAX_TEXT_CHARS)
+    title, _ = utf16_prefix("".join(parser.title).strip(), MAX_TITLE_CHARS)
     forms_elsewhere = sum(bool(action and host(urljoin(url, action)) != page_host) for action in parser.forms)
     mismatched = 0
     for href, shown_text in parser.links[:400]:
@@ -111,9 +123,9 @@ def snapshot_from_html(url: str, html: str) -> dict:
             mismatched += 1
     return {
         "url": url,
-        "title": "".join(parser.title).strip(),
-        "text": text[:MAX_TEXT_CHARS],
-        "truncated": len(text) > MAX_TEXT_CHARS,
+        "title": title,
+        "text": bounded_text,
+        "truncated": truncated,
         "asksForPassword": any((field.get("type") or "").lower() == "password" for field in parser.inputs),
         "asksForCard": any(re.search(r"cc-|card|cvv|cvc", " ".join(field.get(key) or "" for key in ("name", "id", "autocomplete", "placeholder")), re.I) for field in parser.inputs),
         "formsPostElsewhere": forms_elsewhere,

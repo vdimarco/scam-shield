@@ -61,6 +61,12 @@ class SnapshotTest(unittest.TestCase):
         self.assertTrue(has_content({"title": "Notice", "text": ""}))
         self.assertTrue(has_content({"title": "", "text": "Payment details"}))
 
+    def test_page_lengths_match_javascript_utf16_limits(self):
+        page = snapshot_from_html("https://example.test/", "<title>" + "😀" * 260 + "</title><body>" + "a" * 11999 + "😀tail</body>")
+        self.assertEqual(len(page["title"].encode("utf-16-le")) // 2, 500)
+        self.assertEqual(len(page["text"].encode("utf-16-le")) // 2, 11999)
+        self.assertTrue(page["truncated"])
+
 
 if __name__ == "__main__":
     unittest.main()
