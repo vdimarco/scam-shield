@@ -76,7 +76,9 @@ plus the Chrome 157 on-device result linked above.
 
 The [38-second walkthrough](demo/scam-shield-real-check.mp4) combines labelled synthetic pages
 and real extension result captures. It is a silent composite of separate checks, not one
-continuous recording or the final Devpost video.
+continuous recording. An [88-second captioned judge-video candidate](demo/scam-shield-judge-candidate.mp4)
+adds the hosted on-device proof, the extension's cloud result, the quota-limited second opinion,
+and the grandmother's safer next step. It is a labelled composite, not continuous live footage.
 
 ## Not built yet
 

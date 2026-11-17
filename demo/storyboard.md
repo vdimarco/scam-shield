@@ -1,5 +1,8 @@
 # Scam Shield: narrated judge video plan (about 100 seconds)
 
+The [current 88-second candidate](scam-shield-judge-candidate.mp4) is a silent, English-captioned
+composite of observed screenshots. This plan describes a possible narrated follow-up recording.
+
 **Story:** I worry about my grandmother getting a parcel message that asks for a small fee and her card number. The notice, company, and older-adult portrait are illustrative; this is not a real incident or a photograph of my grandmother. Scam Shield gives her a calm reason to pause and a safer way to check.
 
 | Time | Visual to record | Narration |
