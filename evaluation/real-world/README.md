@@ -32,6 +32,30 @@ This includes one scam marked safe and two legitimate sites flagged. Thirty-eigh
 
 The earlier [eight-case smoke run](results-8.json) produced two suspicious, one unsure, and one error among scam pages, and one suspicious plus three safe among legitimate pages. Three of those same cases changed when run again in the 40-case set: the shopping scam changed from unsure to suspicious, the legitimate cryptocurrency page from suspicious to unsure, and the investment scam from error to suspicious. That investment case had 12,000 extracted text characters, yet succeeded on the repeat, so text length alone does not explain the errors.
 
+## Observed 200-site holdout results (November 17, 2026)
+
+The separate [200-case run](results-200.json) used 100 scam and 100 legitimate sites with distinct extracted content patterns, all disjoint from the prior 40 sites. Scam Shield's model and prompts were unchanged during this run. Chrome 157.0.8103.78 on Linux used `ONLY_ON_DEVICE` inference with a 60-second deadline per case; the input SHA-256 was `141e82c79e8739a63be00594de9643b98b757e993c00e6741a7e8f2f300cf328`.
+
+| Publisher label | Suspicious | Unsure | Safe | Error |
+| --- | ---: | ---: | ---: | ---: |
+| Scam (100) | 66 | 26 | 6 | 2 |
+| Legitimate (100) | 5 | 42 | 53 | 0 |
+
+| Category | Publisher label | Suspicious | Unsure | Safe | Error |
+| --- | --- | ---: | ---: | ---: | ---: |
+| Online shopping | Scam | 5 | 14 | 6 | 0 |
+| Online shopping | Legitimate | 0 | 10 | 15 | 0 |
+| Technical support | Scam | 21 | 4 | 0 | 0 |
+| Technical support | Legitimate | 0 | 10 | 15 | 0 |
+| Cryptocurrency | Scam | 17 | 6 | 0 | 2 |
+| Cryptocurrency | Legitimate | 5 | 18 | 2 | 0 |
+| Investment | Scam | 23 | 2 | 0 | 0 |
+| Investment | Legitimate | 0 | 4 | 21 | 0 |
+
+Of the 200 checks, 198 reported `on-device`, none reported cloud, and two errors had unknown inference source. Cases 106 and 108, both cryptocurrency scams, ended with `deadline-exceeded` after 60,022 ms and `inference-failed` after 2,222 ms. Among on-device checks, median elapsed time was 2,341 ms and nearest-rank p95 was 3,961 ms. Six shopping scams were marked safe, while five legitimate cryptocurrency sites were flagged suspicious; these are the clearest weaknesses to investigate. An unsure verdict and an error are separate from a correct classification.
+
+This is a template-diverse convenience sample of archived pages evaluated through static text and feature extraction, not a population accuracy estimate for live browsing. Two initial smoke verdicts were observed before the final content-quality rule and full run, though no model verdict was used to select or exclude a site. The dataset reflects pages archived by the publisher, and the extractor cannot reproduce dynamic content or all browser-visible styling.
+
 To reproduce, run the importer above, then follow [the runner steps](../local-runner.md): start `npx vite --mode development --host 127.0.0.1 --port 5178`, open `http://127.0.0.1:5178/evaluation/local-runner.html` in a Chrome profile with the on-device model enabled, choose `pilot-8.json`, `pilot.json`, or `holdout-200.json` from the private directory, prepare the local model, run checks, and download results. Compare case IDs and labels against the manifest; report errors and unsure verdicts alongside catches and false alarms.
 
 ScamFerret's repository is GPL-3.0 and does not state a separate data license. No publisher HTML, screenshots, URLs, or generated snapshots are committed or redistributed here. Cite the [ScamFerret paper](https://doi.org/10.1007/978-3-031-97620-9_1) when reporting results.

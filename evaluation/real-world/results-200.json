@@ -1,0 +1,2039 @@
+{
+  "mode": "ONLY_ON_DEVICE",
+  "datasetSha256": "141e82c79e8739a63be00594de9643b98b757e993c00e6741a7e8f2f300cf328",
+  "deadlineMs": 60000,
+  "chromeVersion": "157.0.8103.78",
+  "runAt": "2026-11-17T21:03:16.390Z",
+  "cases": [
+    {
+      "id": "scam/online_shopping_english/657fdac25403e820e0d8edefb6047bdf0bdce937",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 5207
+    },
+    {
+      "id": "scam/online_shopping_english/27d4b49a51fd5a4d225cb0b78026bdf177fe489d",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2190
+    },
+    {
+      "id": "scam/online_shopping_english/afe239afe83b4cc074771ee6e877a60d147d12e1",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2144
+    },
+    {
+      "id": "scam/online_shopping_english/c6bfc0ce231b747e6d2a4323604cfcc60945cead",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2917
+    },
+    {
+      "id": "scam/online_shopping_english/f26d12d03006204997185787f9bfd5245381ce77",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2866
+    },
+    {
+      "id": "scam/online_shopping_english/a145d303f5d73d93e52d3f4bdd002e3552bf4c83",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1340
+    },
+    {
+      "id": "scam/online_shopping_english/29ab5b193b80950a748fd497a6415283be8474e8",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2836
+    },
+    {
+      "id": "scam/online_shopping_english/243f4ad83ad5b877c7ee321d9b5853678453221f",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2149
+    },
+    {
+      "id": "scam/online_shopping_english/78307efec61766840dd7e6887ce89ca0996899ff",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1532
+    },
+    {
+      "id": "scam/online_shopping_english/ec334c78327e9511f2d7a1717acc18a732d3b0a4",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3544
+    },
+    {
+      "id": "scam/online_shopping_english/145d0ed46937feb13a6115192168207a05daf8f8",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3027
+    },
+    {
+      "id": "scam/online_shopping_english/8d897b48289364748beecde047337383c30f072b",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1219
+    },
+    {
+      "id": "scam/online_shopping_english/ff5d7a40392db935d571eae3d00950c12dd167df",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2254
+    },
+    {
+      "id": "scam/online_shopping_english/a337e6e1f8166faa22a7aead6a567872f6c2ee4a",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 5149
+    },
+    {
+      "id": "scam/online_shopping_english/7b812ab00a89fb025dc7109e07ff36446f473441",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3181
+    },
+    {
+      "id": "scam/online_shopping_english/77389e7bc0300992729f8b0f80b17e66b13ff07d",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1939
+    },
+    {
+      "id": "scam/online_shopping_english/c0b616b71939dd16f87e4f27415fec9854ae7ea1",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2904
+    },
+    {
+      "id": "scam/online_shopping_english/2688ddea05177e4af537ef7d6e801d7fd61099b1",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3982
+    },
+    {
+      "id": "scam/online_shopping_english/b558aa1a9e9bf576b7ea005075ad276f3d47bbe4",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3302
+    },
+    {
+      "id": "scam/online_shopping_english/64bdf1f715b33367bf937806e88161985825dfa7",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2289
+    },
+    {
+      "id": "scam/online_shopping_english/600197ab84aca50be3c00b627e3d3071cde32ef4",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2263
+    },
+    {
+      "id": "scam/online_shopping_english/fa9921a854356760b578631f1d3c3cb8a67abf9d",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1590
+    },
+    {
+      "id": "scam/online_shopping_english/e3464c550c24f9edb37c7a39a053844eb9189b1a",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2409
+    },
+    {
+      "id": "scam/online_shopping_english/31511361be495746edb970f37b1d77b4659aebce",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1710
+    },
+    {
+      "id": "scam/online_shopping_english/84fab994cb9ec9897a34ac9fb623b374cda8ba10",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2591
+    },
+    {
+      "id": "benign/online_shopping_english/30ebfac0b3ae88461e53b69288555c198e0834c2",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1326
+    },
+    {
+      "id": "benign/online_shopping_english/656872d0b3a6b9d8a3c61654e7e7552a130d18cc",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1668
+    },
+    {
+      "id": "benign/online_shopping_english/2fe8d53b7ab9a19f0d9c15444b14ff9040424a59",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1343
+    },
+    {
+      "id": "benign/online_shopping_english/9787ce73d94825924cb1466decd3efe18357c977",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1895
+    },
+    {
+      "id": "benign/online_shopping_english/c5f9a7087b3d93683fade318ea8ae8b531361833",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3385
+    },
+    {
+      "id": "benign/online_shopping_english/9dcbb33b931ceac2212e446d53a3fe262cdcb04c",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2136
+    },
+    {
+      "id": "benign/online_shopping_english/7440e4269548fd158d8c0df97cfd29efd3b86d95",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1406
+    },
+    {
+      "id": "benign/online_shopping_english/df219b65cffd484c94a7579b86af0886b7bb542d",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2685
+    },
+    {
+      "id": "benign/online_shopping_english/3aa7a8a1e3d79220ef3a9b58cff98459d992397c",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2949
+    },
+    {
+      "id": "benign/online_shopping_english/a0b403a34fd756bb869807717b1c0c18d79a0e17",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1996
+    },
+    {
+      "id": "benign/online_shopping_english/569409bf8ea8c05b4927955dcb2ac1927efb11fe",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1888
+    },
+    {
+      "id": "benign/online_shopping_english/ca61c1f41658059fa16e02aef4e0987d51918dfb",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1710
+    },
+    {
+      "id": "benign/online_shopping_english/2739d85ef46570825341077a7f42ad27fd1e1541",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1360
+    },
+    {
+      "id": "benign/online_shopping_english/67aa55e366fb8a5558b12cd7123e583428c69912",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1918
+    },
+    {
+      "id": "benign/online_shopping_english/b9ac564a512d380cb64032e7742138160205073d",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1794
+    },
+    {
+      "id": "benign/online_shopping_english/05cb82a9c01689f83d5f038a6ecf78d13dc96ece",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1767
+    },
+    {
+      "id": "benign/online_shopping_english/2953ee394f377b5bf4ba9344ee70078092a932c1",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2337
+    },
+    {
+      "id": "benign/online_shopping_english/e7f183b737832dab1edff969d2dfc93f57e68591",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2463
+    },
+    {
+      "id": "benign/online_shopping_english/576bbf7c911554e601b498762fd9f2f24815dddd",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2696
+    },
+    {
+      "id": "benign/online_shopping_english/345eb0c6117fdf276f6a1cc8c1a885f1c3b0864b",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1709
+    },
+    {
+      "id": "benign/online_shopping_english/340e56128dec511b4b51c64caff52f97b5c3a30c",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2329
+    },
+    {
+      "id": "benign/online_shopping_english/98c8d7c20434cbb19cfbbeca02bbbdf27f1eabdd",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2581
+    },
+    {
+      "id": "benign/online_shopping_english/3de7e1251bfe9cd84c21aa0e36faccc806037f63",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2111
+    },
+    {
+      "id": "benign/online_shopping_english/724a4467ed2ddce58b84c3fb84543d92f576596b",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2446
+    },
+    {
+      "id": "benign/online_shopping_english/ebb1219790acb84b864900395b923f146460bb0d",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2692
+    },
+    {
+      "id": "scam/technical_support/e4d4e0ef8f332d5497cba20a95d58fa69274fc20",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1787
+    },
+    {
+      "id": "scam/technical_support/a16044300725bc4dccefc2bc91a19655edf866d7",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1959
+    },
+    {
+      "id": "scam/technical_support/51dfbb7b9efdcd7ea7160358025cf553f7617a9b",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2654
+    },
+    {
+      "id": "scam/technical_support/9d6e3d732b0cdc4cd1512f4538aafe986d88ea26",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3094
+    },
+    {
+      "id": "scam/technical_support/e37995915c62d9e6592b5e1372ccf64c60e8b5e5",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3772
+    },
+    {
+      "id": "scam/technical_support/2990cbc02299662c1115d09fb71146b52e191629",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1571
+    },
+    {
+      "id": "scam/technical_support/065addbffc0caa7e45c4fbf38c093379a43b8d3e",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3818
+    },
+    {
+      "id": "scam/technical_support/8719de2a333e0f4c91e5ae988af5bb1a27c29510",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2325
+    },
+    {
+      "id": "scam/technical_support/281ef1f62599eace12b1616e645290d49c4ab97c",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1655
+    },
+    {
+      "id": "scam/technical_support/a7857cdee48e658888d8c161a9b81f38517bb82e",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2646
+    },
+    {
+      "id": "scam/technical_support/8d77272b65c16d73faa938942953a1065dada26d",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3049
+    },
+    {
+      "id": "scam/technical_support/aab3893adbe5056f301b5ae3618a97242bb5f9b8",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3912
+    },
+    {
+      "id": "scam/technical_support/077fe592812d3d1405cadbac11e072c662a80d41",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1763
+    },
+    {
+      "id": "scam/technical_support/d3b199736d058401972a45854c5af429d188c44d",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2651
+    },
+    {
+      "id": "scam/technical_support/a0b6410763991dfe379d845143294d68b8be8e8a",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2030
+    },
+    {
+      "id": "scam/technical_support/1d02c4a939ef19fc829baf1356d9ec99e71e66e0",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1536
+    },
+    {
+      "id": "scam/technical_support/f8f43afe17d476dbb0906eff151acc25f40f7487",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2399
+    },
+    {
+      "id": "scam/technical_support/a3113990e39f6a5c45d4279c147d4878e14afadd",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3013
+    },
+    {
+      "id": "scam/technical_support/79b16c91fb26e4443f6f0132e2b8ec66ebdfa538",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1988
+    },
+    {
+      "id": "scam/technical_support/ad7bd8689d903fdebff4b5767045463c24556040",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1654
+    },
+    {
+      "id": "scam/technical_support/93f93e25fcf7d0b41d77d2ec4d88975162a6fa58",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2774
+    },
+    {
+      "id": "scam/technical_support/090c27fc72740ad9ba1a38944468e9f131c453a2",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1717
+    },
+    {
+      "id": "scam/technical_support/863c2783839f78a4f1530d18ac8ceed1df1c2a8a",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2671
+    },
+    {
+      "id": "scam/technical_support/38e7bc6f112ffbcd4920ccc7819d4d4598cbaf59",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1822
+    },
+    {
+      "id": "scam/technical_support/9e6a6616eae82199785702159a9a16b5f053749f",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3961
+    },
+    {
+      "id": "benign/technical_support/808bcf5f300e5ca0a858a945dbb72b24979413f1",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2983
+    },
+    {
+      "id": "benign/technical_support/78b4e3c0d77da362d780cebd72caa94f119e82cc",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1826
+    },
+    {
+      "id": "benign/technical_support/80488f79e7ca8126bfb6cbf373c2b82bfa8a9810",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1949
+    },
+    {
+      "id": "benign/technical_support/b2092c8a1c114d5aa71c86114e0296f35319236f",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3028
+    },
+    {
+      "id": "benign/technical_support/c11f746ac2358c2eb977ec710cfe891ab4d00fe1",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1504
+    },
+    {
+      "id": "benign/technical_support/f5d2614246258f5782b2e38304a9185bd2a6814c",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2214
+    },
+    {
+      "id": "benign/technical_support/e1827596cd9240ae842d9e3ad8a7b58341fabc7f",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1355
+    },
+    {
+      "id": "benign/technical_support/dbcc2222d692c903417f829eeb3a3a47ad050190",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1346
+    },
+    {
+      "id": "benign/technical_support/4a55cff66173b5b14acb16c1cf827b3f169ac8c1",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1401
+    },
+    {
+      "id": "benign/technical_support/7fd7b6f6fd6aee29914cecd4cd65cbf1b9304848",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3552
+    },
+    {
+      "id": "benign/technical_support/590ad88b3d965221017fb09211e5241919e6f0e4",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2681
+    },
+    {
+      "id": "benign/technical_support/d787d2b3231f2027d7d1a784c2771d95b0509754",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1020
+    },
+    {
+      "id": "benign/technical_support/598fb72e3148fe64d3b0fb26ffcdbdaa0f03ebfe",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1706
+    },
+    {
+      "id": "benign/technical_support/d9c4bd15a502ecba609368d31a9a63215d065349",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1569
+    },
+    {
+      "id": "benign/technical_support/ee015242b2c2fc3a54dfe39beb53001ff5edf6bb",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1658
+    },
+    {
+      "id": "benign/technical_support/9588e6ac930bf171b27379879535c8b2681d1f13",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1945
+    },
+    {
+      "id": "benign/technical_support/a65dbfeba35b96e497d870dd8c6a57982c90d5d5",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1394
+    },
+    {
+      "id": "benign/technical_support/637ed6421a0a0c139a5da1ca9afb34442f9b4f5b",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2778
+    },
+    {
+      "id": "benign/technical_support/ac49cdf8579e15609994e89c91ea0d150a1bc9ed",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1273
+    },
+    {
+      "id": "benign/technical_support/d1ae19b81c9cacdec96d11f1f46e349dec996545",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3413
+    },
+    {
+      "id": "benign/technical_support/4d12937365b5d87a1e58a68018f9f0d7cdb69584",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1607
+    },
+    {
+      "id": "benign/technical_support/185c57b81304285a43ae3b3c70c7cc88ca1b0678",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1453
+    },
+    {
+      "id": "benign/technical_support/8f286f0870056f8584df9bf1bed52ea11cf1e9fa",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1892
+    },
+    {
+      "id": "benign/technical_support/1552c23da2b886984e1c0aa2c14e54d8fc14ddfe",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2684
+    },
+    {
+      "id": "benign/technical_support/bf176c9513410d80ad76e967811ccc9343da3f86",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1426
+    },
+    {
+      "id": "scam/cryptocurrency/540f73f53ed966b3259ab882f739fe1f4e460189",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1592
+    },
+    {
+      "id": "scam/cryptocurrency/8b6453061db1bfd512ebcc6939e9a42cbbbba009",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2367
+    },
+    {
+      "id": "scam/cryptocurrency/e685147098584b4255c32f6d5d2ae2e8726f613d",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3156
+    },
+    {
+      "id": "scam/cryptocurrency/39267c0f8e858ccc90ecfc529c0686fa098f4c0c",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3657
+    },
+    {
+      "id": "scam/cryptocurrency/19c49564bd1d40cae6578b277e4d7e29ec35e8c0",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1935
+    },
+    {
+      "id": "scam/cryptocurrency/5bcee49e620cf8c1494664e9b8bc5f57f8fd9643",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "error",
+      "inferenceSource": "unknown",
+      "error": "deadline-exceeded",
+      "errorType": "TimeoutError",
+      "elapsedMs": 60022
+    },
+    {
+      "id": "scam/cryptocurrency/24e339c2bf41cb374284e05a61501dcc514b831c",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3916
+    },
+    {
+      "id": "scam/cryptocurrency/d9e68eb940e7915ad1e7c77630cfbaea6a1b5b48",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "error",
+      "inferenceSource": "unknown",
+      "error": "inference-failed",
+      "errorType": "Error",
+      "elapsedMs": 2222
+    },
+    {
+      "id": "scam/cryptocurrency/9f99cc30086745d4dd3a38412998645e92618a8e",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 5574
+    },
+    {
+      "id": "scam/cryptocurrency/27b75966e573353e6c166428418e1a98b2c29e2c",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2858
+    },
+    {
+      "id": "scam/cryptocurrency/c2c17596d11f8ec183f56eea98a3ed9eba424a87",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2296
+    },
+    {
+      "id": "scam/cryptocurrency/1494e2bbf3ef21db14ac1dada94e6ebfd5491317",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1454
+    },
+    {
+      "id": "scam/cryptocurrency/b69d06859b36aa8874f352b5f3e67af52646ecc3",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3989
+    },
+    {
+      "id": "scam/cryptocurrency/10d6ff7e7b658c0dba5a7498ee49815ccd7efcac",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2910
+    },
+    {
+      "id": "scam/cryptocurrency/2d4b5cf530d46f56f252723f4936914f0fee074d",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2741
+    },
+    {
+      "id": "scam/cryptocurrency/ee9bace1ec2c570db7a80afdf63e5565a04ee3d7",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2406
+    },
+    {
+      "id": "scam/cryptocurrency/b205da278b8d373779e605182bf931b2703f1cb0",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1386
+    },
+    {
+      "id": "scam/cryptocurrency/20425aafbe041213f0421dd363826ccb66d0f8be",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3030
+    },
+    {
+      "id": "scam/cryptocurrency/0f3a35fe84da513c5cc979c333dd7bffb873c225",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2722
+    },
+    {
+      "id": "scam/cryptocurrency/8ff86d6e04aa86f1298c25409e60e08dc8df8d13",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 5174
+    },
+    {
+      "id": "scam/cryptocurrency/57023429c2c2d825b90d2f1aaba79bbb16323bea",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1917
+    },
+    {
+      "id": "scam/cryptocurrency/d9204e0036f6fa2e414764476c9d7f9950441f8d",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3237
+    },
+    {
+      "id": "scam/cryptocurrency/95202885f9c5434da7cf280513872a69cf5f092e",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2425
+    },
+    {
+      "id": "scam/cryptocurrency/cc7193b01dd90f52f6732d199e2f87e4f064a2e1",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 4056
+    },
+    {
+      "id": "scam/cryptocurrency/d7b51b695c9b07074d50cfc01b4de3982a1edb82",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2573
+    },
+    {
+      "id": "benign/cryptocurrency/5fa826e8955c0882bf094223d14d125a921841b0",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3346
+    },
+    {
+      "id": "benign/cryptocurrency/96c903053eb8f3ca302b615e999d59a7845c4c0d",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3428
+    },
+    {
+      "id": "benign/cryptocurrency/1f3be72a898ac83160f724c0a0df80de98063d9c",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2386
+    },
+    {
+      "id": "benign/cryptocurrency/4c97d4c415690bcefcf7fb87464467c40cf9e141",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3368
+    },
+    {
+      "id": "benign/cryptocurrency/276d3b4f66f6c94e0c550a1fd88f73f4b6c4be70",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 4470
+    },
+    {
+      "id": "benign/cryptocurrency/323159a6b2c1c2772508b5732980216d6ae41e50",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3012
+    },
+    {
+      "id": "benign/cryptocurrency/11596f9d832f8c22378887635c8da62b53d083dd",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2830
+    },
+    {
+      "id": "benign/cryptocurrency/7609602435d53546c109307640e1aca5b0d076ef",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3823
+    },
+    {
+      "id": "benign/cryptocurrency/b7a4a6c48027c0574e486191fdfc3f9103ef93a5",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3052
+    },
+    {
+      "id": "benign/cryptocurrency/7fc3b8d5dcd7866ee1872e6ea8afa48a75e4fd6f",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2742
+    },
+    {
+      "id": "benign/cryptocurrency/960ace517f614209fae10cdff16cc9b3aab77648",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3697
+    },
+    {
+      "id": "benign/cryptocurrency/359b0e8562a580fb4075f1abb1135bda5d2e34a5",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2749
+    },
+    {
+      "id": "benign/cryptocurrency/aa7777d644f842255fd286f8065be1db5ecdd619",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2636
+    },
+    {
+      "id": "benign/cryptocurrency/eef20979d0117dbc1a0e2a2fa2241e0f958f8fec",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2909
+    },
+    {
+      "id": "benign/cryptocurrency/bb8e9ad42e884b1f56ca0ff9014a62a1b9337cad",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1863
+    },
+    {
+      "id": "benign/cryptocurrency/917a5af69f262610711ff43ef384cda54e6609a0",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1313
+    },
+    {
+      "id": "benign/cryptocurrency/f0b809cb28c2d063fc0cfe6314d255076c724781",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2918
+    },
+    {
+      "id": "benign/cryptocurrency/6a18f9c8c8eb3f1d26cf3a799b1952686494e016",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2544
+    },
+    {
+      "id": "benign/cryptocurrency/93f63f641496e6d462e721e9d2a5c0deee60deef",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2981
+    },
+    {
+      "id": "benign/cryptocurrency/2c945427adc91c5d3fae07665389fd46d80eba3b",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1819
+    },
+    {
+      "id": "benign/cryptocurrency/5d14b2f25e70bdcb278a56406ec58d271d949d21",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3134
+    },
+    {
+      "id": "benign/cryptocurrency/cc72ea55898fb7e7d6d7ba807c83448be96f66f3",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2926
+    },
+    {
+      "id": "benign/cryptocurrency/7f229afdbd1ac9e45929b146c1061e12159c5d90",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2053
+    },
+    {
+      "id": "benign/cryptocurrency/abdddffeb6ac056632fec4f482126d1acc382713",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3642
+    },
+    {
+      "id": "benign/cryptocurrency/2c2a4b45fe0c9e569bb8f190bea12545fee43301",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2311
+    },
+    {
+      "id": "scam/investment/d9c0b38acf0eea1b46ef783cd563ddb9dc18708e",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3923
+    },
+    {
+      "id": "scam/investment/0a4e7cc5bada4c770123903a0bc571f4f0d3773a",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3174
+    },
+    {
+      "id": "scam/investment/d64aeb9ffcf9225ebe9b1ce2eeba0751007424d6",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2400
+    },
+    {
+      "id": "scam/investment/731e3a2240d55a5503647cc11216da5cd3048bc0",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2841
+    },
+    {
+      "id": "scam/investment/54d0a155798f14394ab0b3c403de36b30a976a16",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2171
+    },
+    {
+      "id": "scam/investment/ec40bf1b1eb40681ffdcd03198fcfbeaa83277dd",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1926
+    },
+    {
+      "id": "scam/investment/20e62aaf0a7a146faf6af9f55cbc7f4b50f9a712",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3131
+    },
+    {
+      "id": "scam/investment/d109064b5bf664c4248aaf9e75d3fdcf1018ccd8",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2123
+    },
+    {
+      "id": "scam/investment/b2f8be6752bc70a92d822b10beb7762bb4e47c81",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2314
+    },
+    {
+      "id": "scam/investment/f787f825d3c9e22ae86eb3c05e69b8cc589200b7",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3518
+    },
+    {
+      "id": "scam/investment/0268b54caff116022ef8800cee794a58a51b2b92",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3659
+    },
+    {
+      "id": "scam/investment/e514c532ce40d88fb268cab8f9728fc74be4fc26",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2400
+    },
+    {
+      "id": "scam/investment/88bc7fa1f1b089a43572b4534870df49488cfaae",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2627
+    },
+    {
+      "id": "scam/investment/f7fec34507b8183189b40f61e7c05daf8263f23e",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2490
+    },
+    {
+      "id": "scam/investment/b6582700a1fbf96c1f450f6092167de817416356",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2874
+    },
+    {
+      "id": "scam/investment/880a295ed886f2b381557729a76258df371c5e58",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3981
+    },
+    {
+      "id": "scam/investment/4c7a22a491f8f8482582d7080144c09f5ab1d5c4",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3241
+    },
+    {
+      "id": "scam/investment/dc78a62127a1371e87c3e1470ab0c2bc33de4090",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2592
+    },
+    {
+      "id": "scam/investment/5b67041f444c88ce448e2ea617d69f395915c2a3",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3364
+    },
+    {
+      "id": "scam/investment/c72026117c9a340c0ea1ac1fec5bac89bd9b411f",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2649
+    },
+    {
+      "id": "scam/investment/0d8d5cafe706db4fd9902234ec2cf4b7b715799f",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1603
+    },
+    {
+      "id": "scam/investment/abb77d61a32d59f80239e414d75e4f4b468e1df6",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3219
+    },
+    {
+      "id": "scam/investment/765320a67d30e047e1eb7ff47de2ebad2e2d37c2",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3013
+    },
+    {
+      "id": "scam/investment/ad1c484665284fbb70a9dc6577970ad029907b8e",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2944
+    },
+    {
+      "id": "scam/investment/9d2ee6fa92521fc54a394b2667ce2ba3a1717da9",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2285
+    },
+    {
+      "id": "benign/investment/22abf49e116a11d032033cf3e086e203139cb882",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1983
+    },
+    {
+      "id": "benign/investment/1c32ea7d108247cdb7bab3c07fa9314b99f741fe",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2653
+    },
+    {
+      "id": "benign/investment/5f422b870b4f650ea6b4094e4e8ca68f4231cd0e",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1618
+    },
+    {
+      "id": "benign/investment/25278845d8031a60b572685a0ea7bda776a0129f",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1633
+    },
+    {
+      "id": "benign/investment/7265123abcdab40d935ad75055371e07dd197bec",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1669
+    },
+    {
+      "id": "benign/investment/ae447153efc3f98bcdbb95fe1943556c1173cafa",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1657
+    },
+    {
+      "id": "benign/investment/aac920f7cd0037637e1f6c867c4edadc8b4e8029",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1900
+    },
+    {
+      "id": "benign/investment/0bc3ae3ae760a811ae07902e19b4b6536d83a544",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1775
+    },
+    {
+      "id": "benign/investment/ae404ba14afc1bf4dd063592871271e66cd75343",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1966
+    },
+    {
+      "id": "benign/investment/9f0f0b2d8eeb4d15b590a5a932b8424d26d5bdee",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1087
+    },
+    {
+      "id": "benign/investment/7798a280e15370f5437485416bae2de56e3390e5",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1833
+    },
+    {
+      "id": "benign/investment/de41ad9c57bab94aa421f5d03ebeae2256651e5f",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1990
+    },
+    {
+      "id": "benign/investment/758994333c0e9c3fc1cb072cf21d47e09138fbd1",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1144
+    },
+    {
+      "id": "benign/investment/63f34874119f4e8773e2cb46e9bef1a4d7e249ec",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1342
+    },
+    {
+      "id": "benign/investment/f31d3d13d6a0d111597a8f641793f7956623c1ce",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1278
+    },
+    {
+      "id": "benign/investment/6801210667de9e52656e6ae531f1fcc8824fccd7",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1899
+    },
+    {
+      "id": "benign/investment/01445683133b24641dc00373dfbe0fe7e20eaccb",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1174
+    },
+    {
+      "id": "benign/investment/0f8d64263d77bd5842821f9b09e6ae445eeff5dd",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1964
+    },
+    {
+      "id": "benign/investment/bd7ecb2ba2f2c6ddde5d096192a58196e8755afa",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2344
+    },
+    {
+      "id": "benign/investment/b6d60a7228344f107aeb554c30fdeee104ce477d",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1924
+    },
+    {
+      "id": "benign/investment/3a8b932327fdef9192f77b92ef78d8fd3f920784",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1932
+    },
+    {
+      "id": "benign/investment/dff2e83649c15c1f0e4902e1bca7a8a995d1c9b4",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2224
+    },
+    {
+      "id": "benign/investment/ef87d91dcf10a47130b80612ed0bc799a1b10bbc",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2338
+    },
+    {
+      "id": "benign/investment/931b2e4a8f861b8d62e00b185fc17ed053911aa7",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1551
+    },
+    {
+      "id": "benign/investment/686e3c880088e669578dc9c513091b3f14c1eb4f",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1605
+    }
+  ],
+  "summary": {
+    "byLabel": {
+      "phish": {
+        "suspicious": 0,
+        "unsure": 0,
+        "safe": 0,
+        "error": 0
+      },
+      "scam": {
+        "suspicious": 66,
+        "unsure": 26,
+        "safe": 6,
+        "error": 2
+      },
+      "benign": {
+        "suspicious": 5,
+        "unsure": 42,
+        "safe": 53,
+        "error": 0
+      }
+    },
+    "sources": {
+      "on-device": 198,
+      "cloud": 0,
+      "unknown": 2
+    },
+    "localSuccesses": 198
+  }
+}
