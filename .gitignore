@@ -5,5 +5,6 @@ dist
 docs/devpost-draft.md
 evaluation/real-world/pilot.json
 evaluation/real-world/pilot-8.json
+evaluation/real-world/holdout-200.json
 __pycache__/
 *.pyc

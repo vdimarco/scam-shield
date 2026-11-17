@@ -16,7 +16,7 @@ export interface Outcome {
   category?: string;
   observedRisk: "suspicious" | "unsure" | "safe" | "error";
   inferenceSource: "on-device" | "cloud" | "unknown";
-  error: "local-model-unavailable" | "inference-failed" | "nonlocal-source" | null;
+  error: "local-model-unavailable" | "inference-failed" | "nonlocal-source" | "deadline-exceeded" | null;
   errorType?: string;
   elapsedMs: number | null;
 }
@@ -35,8 +35,8 @@ export function errorType(error: unknown): string {
 }
 
 export function parseDataset(value: unknown): Case[] {
-  if (!object(value) || !Array.isArray(value.cases) || value.cases.length < 1 || value.cases.length > 100) {
-    throw new Error("Expected 1–100 cases in a cases array.");
+  if (!object(value) || !Array.isArray(value.cases) || value.cases.length < 1 || value.cases.length > 200) {
+    throw new Error("Expected 1–200 cases in a cases array.");
   }
   const ids = new Set<string>();
   return value.cases.map((raw: unknown, index: number) => {

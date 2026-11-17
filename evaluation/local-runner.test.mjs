@@ -15,6 +15,8 @@ test("accepts inert page snapshots and rejects conflicting or oversized input", 
   assert.throws(() => parseDataset({ cases: [{ ...data.cases[0], expectedRisk: "safe" }] }), /conflicts/);
   assert.throws(() => parseDataset({ cases: [{ ...data.cases[0], page: { ...page, text: "x".repeat(12001) } }] }), /PageSnapshot/);
   assert.throws(() => parseDataset({ cases: [data.cases[0], data.cases[0]] }), /duplicate/);
+  assert.equal(parseDataset({ cases: Array.from({ length: 200 }, (_, index) => ({ ...data.cases[0], id: `case-${index}` })) }).length, 200);
+  assert.throws(() => parseDataset({ cases: Array.from({ length: 201 }, (_, index) => ({ ...data.cases[0], id: `case-${index}` })) }), /1–200/);
 });
 
 test("unknown sources and errors do not inflate local successes", () => {
