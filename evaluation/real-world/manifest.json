@@ -1,0 +1,323 @@
+{
+  "source": "ScamFerret/artifact dataset (evaluation split)",
+  "commit": "8cf8dc631edafe584141e2f95f0c0f51855fb7bc",
+  "selection": "Five lowest SHA-256 hashes of label/category/Git-blob-SHA per English category and class, with mapped original URL and compressed file <=1 MB",
+  "eligibility": [
+    {
+      "label": "scam",
+      "category": "online_shopping_english",
+      "published": 200,
+      "eligible": 200,
+      "missing_url": 0,
+      "oversized": 0
+    },
+    {
+      "label": "benign",
+      "category": "online_shopping_english",
+      "published": 200,
+      "eligible": 147,
+      "missing_url": 53,
+      "oversized": 0
+    },
+    {
+      "label": "scam",
+      "category": "technical_support",
+      "published": 200,
+      "eligible": 179,
+      "missing_url": 1,
+      "oversized": 20
+    },
+    {
+      "label": "benign",
+      "category": "technical_support",
+      "published": 200,
+      "eligible": 156,
+      "missing_url": 44,
+      "oversized": 0
+    },
+    {
+      "label": "scam",
+      "category": "cryptocurrency",
+      "published": 200,
+      "eligible": 189,
+      "missing_url": 11,
+      "oversized": 0
+    },
+    {
+      "label": "benign",
+      "category": "cryptocurrency",
+      "published": 200,
+      "eligible": 194,
+      "missing_url": 4,
+      "oversized": 2
+    },
+    {
+      "label": "scam",
+      "category": "investment",
+      "published": 200,
+      "eligible": 200,
+      "missing_url": 0,
+      "oversized": 0
+    },
+    {
+      "label": "benign",
+      "category": "investment",
+      "published": 200,
+      "eligible": 200,
+      "missing_url": 0,
+      "oversized": 0
+    }
+  ],
+  "cases": [
+    {
+      "id": "scam/online_shopping_english/d25dff85daa4095c9796ca3af98bd156557ea2c7",
+      "label": "scam",
+      "category": "online_shopping_english",
+      "blob_sha": "d25dff85daa4095c9796ca3af98bd156557ea2c7"
+    },
+    {
+      "id": "scam/online_shopping_english/3078e876839a858afa4b2c82e2b4a964deeaa31b",
+      "label": "scam",
+      "category": "online_shopping_english",
+      "blob_sha": "3078e876839a858afa4b2c82e2b4a964deeaa31b"
+    },
+    {
+      "id": "scam/online_shopping_english/f392dad0c0db331a43cb134f5c4544423b37a539",
+      "label": "scam",
+      "category": "online_shopping_english",
+      "blob_sha": "f392dad0c0db331a43cb134f5c4544423b37a539"
+    },
+    {
+      "id": "scam/online_shopping_english/e3010d2ae8b5f884f554eb2e210b9c54ddc8d4d7",
+      "label": "scam",
+      "category": "online_shopping_english",
+      "blob_sha": "e3010d2ae8b5f884f554eb2e210b9c54ddc8d4d7"
+    },
+    {
+      "id": "scam/online_shopping_english/33295ca68f57d73a4a5fe744d53999a53ebf887a",
+      "label": "scam",
+      "category": "online_shopping_english",
+      "blob_sha": "33295ca68f57d73a4a5fe744d53999a53ebf887a"
+    },
+    {
+      "id": "benign/online_shopping_english/fd949aa102d4100bb18cfdb33eb00fea9d7ca64e",
+      "label": "benign",
+      "category": "online_shopping_english",
+      "blob_sha": "fd949aa102d4100bb18cfdb33eb00fea9d7ca64e"
+    },
+    {
+      "id": "benign/online_shopping_english/cb558af35fece6daca06a90d84164916c809c70e",
+      "label": "benign",
+      "category": "online_shopping_english",
+      "blob_sha": "cb558af35fece6daca06a90d84164916c809c70e"
+    },
+    {
+      "id": "benign/online_shopping_english/eb3a1b1ab8d407dfa9462c87d39e739669eb5dc2",
+      "label": "benign",
+      "category": "online_shopping_english",
+      "blob_sha": "eb3a1b1ab8d407dfa9462c87d39e739669eb5dc2"
+    },
+    {
+      "id": "benign/online_shopping_english/b451f06808d4f3367f7e65af514d2db67b0a1df0",
+      "label": "benign",
+      "category": "online_shopping_english",
+      "blob_sha": "b451f06808d4f3367f7e65af514d2db67b0a1df0"
+    },
+    {
+      "id": "benign/online_shopping_english/2848b930ac2e3d98ba6259c30e392676cb9ba46a",
+      "label": "benign",
+      "category": "online_shopping_english",
+      "blob_sha": "2848b930ac2e3d98ba6259c30e392676cb9ba46a"
+    },
+    {
+      "id": "scam/technical_support/54b92cc8849e1d6d01b0cb6dab8af001d731e843",
+      "label": "scam",
+      "category": "technical_support",
+      "blob_sha": "54b92cc8849e1d6d01b0cb6dab8af001d731e843"
+    },
+    {
+      "id": "scam/technical_support/b80ec2e61a790029ae961915ce0519659bae0aa8",
+      "label": "scam",
+      "category": "technical_support",
+      "blob_sha": "b80ec2e61a790029ae961915ce0519659bae0aa8"
+    },
+    {
+      "id": "scam/technical_support/f644c7f99c13af72aa545641760a016be928e554",
+      "label": "scam",
+      "category": "technical_support",
+      "blob_sha": "f644c7f99c13af72aa545641760a016be928e554"
+    },
+    {
+      "id": "scam/technical_support/050f69d011383935c3ce74cbfa5f5a5aeb73a9db",
+      "label": "scam",
+      "category": "technical_support",
+      "blob_sha": "050f69d011383935c3ce74cbfa5f5a5aeb73a9db"
+    },
+    {
+      "id": "scam/technical_support/28243d6cddc30ee944e01de07594bcedd944f606",
+      "label": "scam",
+      "category": "technical_support",
+      "blob_sha": "28243d6cddc30ee944e01de07594bcedd944f606"
+    },
+    {
+      "id": "benign/technical_support/bfd47dc2c5faef0ca6f18cf68c8f139da09c79a2",
+      "label": "benign",
+      "category": "technical_support",
+      "blob_sha": "bfd47dc2c5faef0ca6f18cf68c8f139da09c79a2"
+    },
+    {
+      "id": "benign/technical_support/bbe7152e094e0b9d52a5ae6ee0305eb7ab91ab33",
+      "label": "benign",
+      "category": "technical_support",
+      "blob_sha": "bbe7152e094e0b9d52a5ae6ee0305eb7ab91ab33"
+    },
+    {
+      "id": "benign/technical_support/e29f2882d591d80acd95562d381eebfc5e98602e",
+      "label": "benign",
+      "category": "technical_support",
+      "blob_sha": "e29f2882d591d80acd95562d381eebfc5e98602e"
+    },
+    {
+      "id": "benign/technical_support/da94038bb12e287a8fd512359057b473da707ece",
+      "label": "benign",
+      "category": "technical_support",
+      "blob_sha": "da94038bb12e287a8fd512359057b473da707ece"
+    },
+    {
+      "id": "benign/technical_support/eed1d3ad6c0fef4d07a93662bcf72d1e908b934e",
+      "label": "benign",
+      "category": "technical_support",
+      "blob_sha": "eed1d3ad6c0fef4d07a93662bcf72d1e908b934e"
+    },
+    {
+      "id": "scam/cryptocurrency/129314031f8c2150dd4ccc240df3657f92f8ae98",
+      "label": "scam",
+      "category": "cryptocurrency",
+      "blob_sha": "129314031f8c2150dd4ccc240df3657f92f8ae98"
+    },
+    {
+      "id": "scam/cryptocurrency/8fc98469223ff7c94ed84b548f0d05d2297d6199",
+      "label": "scam",
+      "category": "cryptocurrency",
+      "blob_sha": "8fc98469223ff7c94ed84b548f0d05d2297d6199"
+    },
+    {
+      "id": "scam/cryptocurrency/964f615f1b56580e9b9c639360dbcdc3c3b94ea3",
+      "label": "scam",
+      "category": "cryptocurrency",
+      "blob_sha": "964f615f1b56580e9b9c639360dbcdc3c3b94ea3"
+    },
+    {
+      "id": "scam/cryptocurrency/6bfd45bab9d76008dbba459553dd0bfc04a5543d",
+      "label": "scam",
+      "category": "cryptocurrency",
+      "blob_sha": "6bfd45bab9d76008dbba459553dd0bfc04a5543d"
+    },
+    {
+      "id": "scam/cryptocurrency/dc1dd7b88b8e5cc3ec238c1b20bfd012a7ed74fe",
+      "label": "scam",
+      "category": "cryptocurrency",
+      "blob_sha": "dc1dd7b88b8e5cc3ec238c1b20bfd012a7ed74fe"
+    },
+    {
+      "id": "benign/cryptocurrency/782147909efaaa2898b28529b010188c71bffa5a",
+      "label": "benign",
+      "category": "cryptocurrency",
+      "blob_sha": "782147909efaaa2898b28529b010188c71bffa5a"
+    },
+    {
+      "id": "benign/cryptocurrency/44fc93cc606d4e19437a770ac42daf70ed648539",
+      "label": "benign",
+      "category": "cryptocurrency",
+      "blob_sha": "44fc93cc606d4e19437a770ac42daf70ed648539"
+    },
+    {
+      "id": "benign/cryptocurrency/f42acc4ab5a0540be80fbe485d5b5832ba39c9f3",
+      "label": "benign",
+      "category": "cryptocurrency",
+      "blob_sha": "f42acc4ab5a0540be80fbe485d5b5832ba39c9f3"
+    },
+    {
+      "id": "benign/cryptocurrency/10b3746f0065224f1377ac7bffe0b84828b6781f",
+      "label": "benign",
+      "category": "cryptocurrency",
+      "blob_sha": "10b3746f0065224f1377ac7bffe0b84828b6781f"
+    },
+    {
+      "id": "benign/cryptocurrency/59bee709693aa37bc11f38d5c56b99f1fb537f85",
+      "label": "benign",
+      "category": "cryptocurrency",
+      "blob_sha": "59bee709693aa37bc11f38d5c56b99f1fb537f85"
+    },
+    {
+      "id": "scam/investment/3b6db694422ba69972fef02b5cca75db5a094e13",
+      "label": "scam",
+      "category": "investment",
+      "blob_sha": "3b6db694422ba69972fef02b5cca75db5a094e13"
+    },
+    {
+      "id": "scam/investment/d962f2bb3f4473918016d4ca422fd56c8af5323a",
+      "label": "scam",
+      "category": "investment",
+      "blob_sha": "d962f2bb3f4473918016d4ca422fd56c8af5323a"
+    },
+    {
+      "id": "scam/investment/ab1e81a459856ced890f438d1887ee8915afe7a5",
+      "label": "scam",
+      "category": "investment",
+      "blob_sha": "ab1e81a459856ced890f438d1887ee8915afe7a5"
+    },
+    {
+      "id": "scam/investment/5fcbc7855ebcbb0a7105074c8aa5b9fde5c82c47",
+      "label": "scam",
+      "category": "investment",
+      "blob_sha": "5fcbc7855ebcbb0a7105074c8aa5b9fde5c82c47"
+    },
+    {
+      "id": "scam/investment/834d8c60fcf8a0178c0c1636edec9b0927f9afb1",
+      "label": "scam",
+      "category": "investment",
+      "blob_sha": "834d8c60fcf8a0178c0c1636edec9b0927f9afb1"
+    },
+    {
+      "id": "benign/investment/9be08f9ccd2b901ab9dea0164a8e2358a745ef49",
+      "label": "benign",
+      "category": "investment",
+      "blob_sha": "9be08f9ccd2b901ab9dea0164a8e2358a745ef49"
+    },
+    {
+      "id": "benign/investment/a8ea677de6b44d9bde4a545bc3e797cc8e09f723",
+      "label": "benign",
+      "category": "investment",
+      "blob_sha": "a8ea677de6b44d9bde4a545bc3e797cc8e09f723"
+    },
+    {
+      "id": "benign/investment/ebc22edc4e476e3a414fca7c67e9b59511906deb",
+      "label": "benign",
+      "category": "investment",
+      "blob_sha": "ebc22edc4e476e3a414fca7c67e9b59511906deb"
+    },
+    {
+      "id": "benign/investment/4740f78f9218744180d283563a965d00f08efcfd",
+      "label": "benign",
+      "category": "investment",
+      "blob_sha": "4740f78f9218744180d283563a965d00f08efcfd"
+    },
+    {
+      "id": "benign/investment/99d8a162a31d26fa8acaa514cd82c2d79783c053",
+      "label": "benign",
+      "category": "investment",
+      "blob_sha": "99d8a162a31d26fa8acaa514cd82c2d79783c053"
+    }
+  ],
+  "smoke_ids": [
+    "scam/online_shopping_english/d25dff85daa4095c9796ca3af98bd156557ea2c7",
+    "benign/online_shopping_english/fd949aa102d4100bb18cfdb33eb00fea9d7ca64e",
+    "scam/technical_support/54b92cc8849e1d6d01b0cb6dab8af001d731e843",
+    "benign/technical_support/bfd47dc2c5faef0ca6f18cf68c8f139da09c79a2",
+    "scam/cryptocurrency/129314031f8c2150dd4ccc240df3657f92f8ae98",
+    "benign/cryptocurrency/782147909efaaa2898b28529b010188c71bffa5a",
+    "scam/investment/3b6db694422ba69972fef02b5cca75db5a094e13",
+    "benign/investment/9be08f9ccd2b901ab9dea0164a8e2358a745ef49"
+  ]
+}

@@ -10,5 +10,5 @@
     "noEmit": true,
     "skipLibCheck": true
   },
-  "include": ["src", "vite.config.ts"]
+  "include": ["src", "evaluation/local-runner.ts", "evaluation/local-runner-logic.ts", "vite.config.ts"]
 }

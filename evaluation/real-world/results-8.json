@@ -1,0 +1,114 @@
+{
+  "runAt": "2026-11-17T19:40:07.755Z",
+  "mode": "ONLY_ON_DEVICE",
+  "cases": [
+    {
+      "id": "scam/online_shopping_english/d25dff85daa4095c9796ca3af98bd156557ea2c7",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "online_shopping_english",
+      "observedRisk": "unsure",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 5271
+    },
+    {
+      "id": "benign/online_shopping_english/fd949aa102d4100bb18cfdb33eb00fea9d7ca64e",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "online_shopping_english",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1771
+    },
+    {
+      "id": "scam/technical_support/54b92cc8849e1d6d01b0cb6dab8af001d731e843",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "technical_support",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1709
+    },
+    {
+      "id": "benign/technical_support/bfd47dc2c5faef0ca6f18cf68c8f139da09c79a2",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "technical_support",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1087
+    },
+    {
+      "id": "scam/cryptocurrency/129314031f8c2150dd4ccc240df3657f92f8ae98",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 2716
+    },
+    {
+      "id": "benign/cryptocurrency/782147909efaaa2898b28529b010188c71bffa5a",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "cryptocurrency",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 5138
+    },
+    {
+      "id": "scam/investment/3b6db694422ba69972fef02b5cca75db5a094e13",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "error",
+      "inferenceSource": "unknown",
+      "error": "inference-failed",
+      "elapsedMs": 189465
+    },
+    {
+      "id": "benign/investment/9be08f9ccd2b901ab9dea0164a8e2358a745ef49",
+      "label": "benign",
+      "expectedRisk": "safe",
+      "category": "investment",
+      "observedRisk": "safe",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 1580
+    }
+  ],
+  "summary": {
+    "byLabel": {
+      "phish": {
+        "suspicious": 0,
+        "unsure": 0,
+        "safe": 0,
+        "error": 0
+      },
+      "scam": {
+        "suspicious": 2,
+        "unsure": 1,
+        "safe": 0,
+        "error": 1
+      },
+      "benign": {
+        "suspicious": 1,
+        "unsure": 0,
+        "safe": 3,
+        "error": 0
+      }
+    },
+    "sources": {
+      "on-device": 7,
+      "cloud": 0,
+      "unknown": 1
+    },
+    "localSuccesses": 7
+  }
+}

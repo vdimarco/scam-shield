@@ -75,6 +75,17 @@ Grounded source links and the extension's automatic on-device path remain unveri
 returned live cloud results for a suspicious parcel message and an ordinary delivery update,
 plus the Chrome 157 on-device result linked above.
 
+## Local archived-page pilot
+
+We also tested the `ONLY_ON_DEVICE` screener against [40 archived real sites](evaluation/real-world/README.md) from ScamFerret's 2024 evaluation corpus: five scam and five legitimate pages in each of four English categories. The HTML was parsed into inert, text-only page snapshots; no scam site was opened. The [local runner](evaluation/local-runner.md) records the model's reported inference source and does not use the requested-check cloud fallback. Its [40-case results](evaluation/real-world/results-40.json) were:
+
+| Publisher label | Suspicious | Unsure | Safe | Error |
+| --- | ---: | ---: | ---: | ---: |
+| Scam (20) | 14 | 3 | 1 | 2 |
+| Legitimate (20) | 2 | 7 | 11 | 0 |
+
+This includes one scam marked safe and two legitimate pages flagged. Thirty-eight cases reported `on-device`, two errors had unknown source, and none reported cloud inference. The initial [eight-case smoke run](evaluation/real-world/results-8.json) had two suspicious, one unsure, and one error among scams; one suspicious and three safe among legitimate pages. Three of those eight cases changed outcome when included in the 40-case run. These are observed results from a small convenience sample, not a real-world accuracy estimate. The 40 URLs represent 38 unique extracted content patterns, and static text snapshots cannot reproduce every rendered or dynamic signal.
+
 The [38-second walkthrough](demo/scam-shield-real-check.mp4) combines labelled synthetic pages
 and real extension result captures. It is a silent composite of separate checks, not one
 continuous recording. The [public 88-second judge video](https://youtu.be/49NiHLv1WZg) is the
@@ -90,7 +101,6 @@ is preserved for review.
 - Always-on screening with the panel closed (needs an offscreen document).
 - A production App Check provider for Chrome extensions.
 - Android share target.
-- An accuracy test set of real phishing and legitimate pages.
 
 ## License
 

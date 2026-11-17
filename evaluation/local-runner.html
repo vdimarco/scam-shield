@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Scam Shield · Local evaluation</title>
+    <style>
+      body { max-width: 860px; margin: 32px auto; padding: 0 18px; font: 16px/1.5 system-ui, sans-serif; color: #1b2b23; background: #faf8f3; }
+      h1 { margin-bottom: 4px; }
+      .note { color: #506158; }
+      .controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 24px 0; }
+      button, input { font: inherit; }
+      button { padding: 9px 15px; border: 1px solid #1b5c45; border-radius: 8px; background: #1b5c45; color: white; cursor: pointer; }
+      button:disabled { opacity: .45; cursor: not-allowed; }
+      input { max-width: 100%; }
+      progress { width: 100%; }
+      table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+      th, td { padding: 8px; border-bottom: 1px solid #c9d6ce; text-align: left; }
+      th { background: #edf2ed; }
+      td:first-child { font-family: ui-monospace, monospace; }
+      #status { min-height: 1.5em; }
+      #summary { white-space: pre-wrap; background: #edf2ed; padding: 14px; border-radius: 8px; }
+    </style>
+  </head>
+  <body>
+    <h1>Local evaluation</h1>
+    <p class="note">Use saved, inert page snapshots. This page does not fetch their URLs. Checks use Firebase AI Logic’s <code>ONLY_ON_DEVICE</code> mode. A reported cloud or unknown source is recorded as an error.</p>
+    <div class="controls">
+      <label for="dataset">Snapshot JSON</label>
+      <input id="dataset" type="file" accept=".json,application/json" />
+      <button id="prepare" disabled>Prepare local model</button>
+      <button id="run" disabled>Run checks</button>
+      <button id="export" disabled>Download results JSON</button>
+    </div>
+    <progress id="download" max="1" value="0" hidden></progress>
+    <p id="status" role="status" aria-live="polite">Choose a snapshot JSON file to begin.</p>
+    <h2>Results</h2>
+    <table>
+      <thead><tr><th scope="col">Case ID</th><th scope="col">Label</th><th scope="col">Verdict</th><th scope="col">Source</th><th scope="col">Time</th><th scope="col">Error</th></tr></thead>
+      <tbody id="results"></tbody>
+    </table>
+    <h2>Summary</h2>
+    <pre id="summary">No checks yet.</pre>
+    <script type="module" src="/evaluation/local-runner.ts"></script>
+  </body>
+</html>
