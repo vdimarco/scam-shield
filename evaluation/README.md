@@ -8,6 +8,8 @@ This is a **small product check**, not a claim about real-world detection accura
 
 A separate tap on **Get a second opinion** for the parcel page initially returned a visible error and no source links; a repeat trace identified an HTTP 429 quota response for the search-grounded cloud model. A later build retried without web search after that quota response. In an actual Chromium run it returned a plain-language answer, explicitly said it could not independently verify the page, and displayed **“No supporting web sources were returned.”** The request trace was 200 for the first page check, 429 for the grounded attempt, and 200 for the ungrounded fallback. See the [second-opinion history](second-opinion-observation.json) and [fallback panel capture](../demo/frames/04-second-opinion-fallback.png). Grounded second opinion has not been demonstrated.
 
+A separate screenshot upload of the synthetic parcel-page image returned a suspicious verdict, a cloud source label, and HTTP 200 from Firebase AI Logic. See the [screenshot observation](screenshot-observation.json). This one check does not measure screenshot accuracy or on-device image handling.
+
 ## Run the real extension
 
 1. Build and load the extension using the root README, with a test Firebase project and no personal browsing data. Keep the Scam Shield side panel open.

@@ -68,8 +68,9 @@ four suspicious pages were flagged and four legitimate pages were marked safe in
 The [raw results](evaluation/results.csv) and [run notes](evaluation/run-notes.md) show the source labels
 and limits. The on-device Prompt API was unavailable in that extension test environment. A separate
 second-opinion check first hit the project's search-grounding quota, then returned an ungrounded
-cloud opinion with an explicit no-web-sources note. Grounded source links, screenshot checks, and
-the extension's automatic on-device path remain unverified. The hosted web demo independently
+cloud opinion with an explicit no-web-sources note. A separate screenshot check of a synthetic
+parcel-page image returned a suspicious, cloud-labelled verdict ([observation](evaluation/screenshot-observation.json)).
+Grounded source links and the extension's automatic on-device path remain unverified. The hosted web demo independently
 returned live cloud results for a suspicious parcel message and an ordinary delivery update,
 plus the Chrome 157 on-device result linked above.
 

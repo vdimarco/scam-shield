@@ -1,0 +1,12 @@
+{
+  "observedDate": "2026-11-17",
+  "browser": "Chromium 155.0.8059.84",
+  "input": "demo/frames/02-parcel-page.png",
+  "inputType": "synthetic parcel-page screenshot",
+  "model": "gemini-3.5-flash-lite",
+  "httpStatus": 200,
+  "risk": "suspicious",
+  "reason": "This is a fake delivery notification designed to steal your credit card information by creating a false sense of urgency.",
+  "sourceLabel": "This screenshot was sent to the cloud for this check.",
+  "note": "One real upload through the extension's screenshot input; not an accuracy estimate or an on-device image test."
+}
