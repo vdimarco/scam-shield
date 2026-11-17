@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f1e7" />
+    <meta name="description" content="Scam Shield is a Chrome extension prototype built with my grandmother in mind. It offers a calm second look at suspicious pages." />
+    <title>Scam Shield — A calmer way to browse</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" id="top">
+      <a class="wordmark" href="#top" aria-label="Scam Shield, back to top">Scam Shield</a>
+      <nav aria-label="Main navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href="#try-it">Try a check</a>
+        <a href="#promise">The promise</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title">I want my grandmother to browse without facing scams alone.</h1>
+          <p>Scam Shield gives her a calm second look at the page in front of her: a clear explanation of warning signs and a deeper check when she asks.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#how-it-works">
+              See how it works
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" /></svg>
+            </a>
+            <span>A Chrome extension prototype</span>
+          </div>
+        </div>
+        <figure class="hero-image">
+          <img src="/assets/grandmother-laptop.webp" alt="Illustrative portrait of an older woman using a laptop at a kitchen table" width="1536" height="1024" fetchpriority="high" />
+        </figure>
+      </section>
+
+      <section class="example-section" id="how-it-works" aria-labelledby="example-title">
+        <div class="section-intro">
+          <h2 id="example-title">When a page asks for trust, she gets a moment to pause.</h2>
+          <p>Imagine my grandmother expecting a parcel. A page asks for $1.95 to release it. The fee is small; the request for her card is not. Scam Shield is designed to give her a moment to pause.</p>
+        </div>
+
+        <div class="example-grid">
+          <div class="browser-demo" aria-label="Illustrative parcel-fee scam page">
+            <div class="browser-bar" aria-hidden="true">
+              <span class="browser-dots"><i></i><i></i><i></i></span>
+              <span class="browser-address">parcel-update.example</span>
+              <span class="browser-menu">•••</span>
+            </div>
+            <div class="parcel-page">
+              <div class="parcel-brand">
+                <svg aria-hidden="true" viewBox="0 0 40 40"><path d="m20 2 16 9v18l-16 9L4 29V11L20 2Z"/><path d="m4 11 16 9 16-9M20 20v18M12 6l16 9"/></svg>
+                <span>Parcel update</span>
+              </div>
+              <div class="parcel-message">
+                <span class="parcel-icon" aria-hidden="true">
+                  <svg viewBox="0 0 90 90"><path d="m45 10 31 17v36L45 80 14 63V27L45 10Z"/><path d="m14 27 31 18 31-18M45 45v35M29 18l31 18"/></svg>
+                </span>
+                <div>
+                  <h3>Your parcel is waiting.</h3>
+                  <p>Pay $1.95 to release it.</p>
+                  <span class="fake-pay">Pay $1.95 now <span aria-hidden="true">→</span></span>
+                </div>
+              </div>
+              <div class="fake-fields" aria-hidden="true"><span>Card number</span><span>MM / YY</span><span>CVV</span></div>
+            </div>
+          </div>
+
+          <div class="demo-right">
+            <p class="example-label">Illustrative example · no page was scanned</p>
+            <div class="shield-panel">
+              <div class="panel-header">
+                <span class="panel-brand">Scam Shield</span>
+                <span class="panel-dash" aria-hidden="true"></span>
+              </div>
+              <div class="panel-content">
+                <h3>Stop. This looks like a scam.</h3>
+                <p class="panel-reason">The page asks for a small card payment and pushes you to act before you can verify the delivery.</p>
+                <p class="panel-list-title">What raised concern</p>
+                <ul class="concerns">
+                  <li><span aria-hidden="true">01</span><div><strong>Urgency</strong><small>It asks for a quick decision.</small></div></li>
+                  <li><span aria-hidden="true">02</span><div><strong>Card details</strong><small>It requests payment information.</small></div></li>
+                  <li><span aria-hidden="true">03</span><div><strong>Unfamiliar address</strong><small>The address needs independent checking.</small></div></li>
+                </ul>
+                <button class="button button-primary panel-button" type="button" id="second-opinion-button" aria-controls="sample-opinion" aria-expanded="false">See a second opinion example <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></button>
+                <div id="sample-opinion" class="sample-opinion" hidden>
+                  <h4>What to do now</h4>
+                  <p>Close this page. Open the delivery company’s official app or type its address yourself to check whether a payment is really due.</p>
+                  <small>Sample guidance for illustration; no cloud check ran here.</small>
+                </div>
+              </div>
+            </div>
+            <p class="demo-caveat">An AI warning is a prompt to verify, never a guarantee that a page is safe or unsafe.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="live-section" id="try-it" aria-labelledby="live-title">
+        <div class="live-heading">
+          <h2 id="live-title">Try a real check.</h2>
+          <p>Choose a fictional message or paste your own. The answer below comes from Firebase AI Logic, and it shows where the check ran.</p>
+        </div>
+        <div class="live-grid">
+          <form class="live-form" id="live-form">
+            <label for="example-choice">Example to try</label>
+            <select id="example-choice">
+              <option value="parcel">Suspicious parcel fee</option>
+              <option value="ordinary">Ordinary delivery update</option>
+              <option value="custom">My own text</option>
+            </select>
+            <label for="message-input">Message to check</label>
+            <textarea id="message-input" maxlength="6000" required></textarea>
+            <p class="live-privacy">A check may send this text to Firebase AI Logic in the cloud. Please remove names, account details, and other private information before checking.</p>
+            <button class="button button-primary" id="live-check" type="submit">Check this message <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></button>
+          </form>
+          <div class="live-answer" aria-live="polite" aria-atomic="true">
+            <p class="live-answer-label">Actual result</p>
+            <p class="live-status" id="live-status">No check has run yet.</p>
+            <div id="live-result" hidden>
+              <h3 id="live-verdict"></h3>
+              <p id="live-reason"></p>
+              <p class="live-source" id="live-source"></p>
+              <p class="live-caveat">This is a second look, not a guarantee. Verify important requests through a contact method you found independently.</p>
+            </div>
+            <p class="repo-link"><a href="https://github.com/vdimarco/scam-shield" target="_blank" rel="noopener noreferrer">Source code and synthetic test cases <span aria-hidden="true">↗</span></a></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="promise-section" id="promise" aria-labelledby="promise-title">
+        <h2 id="promise-title">Protection that respects her choices.</h2>
+        <div class="steps">
+          <article>
+            <span class="step-number">01</span>
+            <div><h3>Check privately</h3><p>When she enables it, automatic screening runs on her computer while the side panel is open.</p></div>
+          </article>
+          <article>
+            <span class="step-number">02</span>
+            <div><h3>Explain clearly</h3><p>Warning signs are shown in plain language, with the check’s source identified.</p></div>
+          </article>
+          <article>
+            <span class="step-number">03</span>
+            <div><h3>Ask for more</h3><p>She can request a deeper cloud check of a flagged page, with the source shown in the panel.</p></div>
+          </article>
+        </div>
+        <p class="maker-note">I’m building this for my grandmother. She deserves time to think before a page asks her for money, a password, or her trust.</p>
+        <p class="prototype-note">Scam Shield is an early prototype. Requested page and screenshot checks may use cloud fallback when the local model is unavailable; the extension shows where a check ran. The current build is not available for public installation.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Scam Shield</span>
+      <span>Built with Firebase AI Logic</span>
+      <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

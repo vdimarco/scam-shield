@@ -39,7 +39,6 @@ function showStatus(headline: string, reason = "") {
   $("site").textContent = "";
   $("headline").textContent = headline;
   $("reason").textContent = reason;
-  $("tactics").replaceChildren();
   $("source").textContent = "";
   $("second").hidden = true;
   $<HTMLButtonElement>("second").disabled = false;
@@ -53,9 +52,6 @@ function showVerdict(page: PageSnapshot | null, verdict: Verdict) {
   $("site").textContent = page ? new URL(page.url).hostname : "Screenshot";
   $("headline").textContent = HEADLINES[verdict.risk];
   $("reason").textContent = verdict.reason;
-  $("tactics").replaceChildren(
-    ...verdict.tactics.map((t) => Object.assign(document.createElement("li"), { textContent: t })),
-  );
   $("source").textContent = verdict.ranOnDevice === true
     ? `${checked} was checked on this computer.`
     : verdict.ranOnDevice === false
