@@ -103,6 +103,7 @@ export interface SecondOpinion {
   sources: { title: string; url: string }[];
   citations: { after: number; sourceIndexes: number[] }[];
   searchSuggestions?: string;
+  searchFellBack: boolean;
 }
 
 export async function secondOpinion(page: PageSnapshot, first: Verdict): Promise<SecondOpinion> {
@@ -126,11 +127,13 @@ ${describe(page)}`;
     return (await model.generateContent(prompt(withSearch))).response;
   };
   let response;
+  let searchFellBack = false;
   try {
     response = await generate(true);
   } catch (err) {
     if (!(err instanceof Error) || !/quota|429/i.test(err.message)) throw err;
     // Search is quota limited on some plans; keep the answer useful without claiming verification.
+    searchFellBack = true;
     response = await generate(false);
   }
   const candidate = response.candidates?.[0];
@@ -166,5 +169,6 @@ ${describe(page)}`;
     sources,
     citations,
     searchSuggestions: grounding?.searchEntryPoint?.renderedContent,
+    searchFellBack,
   };
 }

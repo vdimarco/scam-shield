@@ -1,0 +1,78 @@
+1
+00:00:00,800 --> 00:00:03,350
+I built Scam Shield thinking about my grandmother.
+
+2
+00:00:03,350 --> 00:00:07,200
+A rushed parcel notice could catch her off guard.
+
+3
+00:00:08,800 --> 00:00:14,850
+This fictional page demands a tiny fee, card details,
+and a decision in thirty minutes.
+
+4
+00:00:14,850 --> 00:00:17,920
+The pressure is the clue.
+
+5
+00:00:19,500 --> 00:00:23,550
+In the live checker, Firebase AI Logic
+flagged that pressure.
+
+6
+00:00:23,550 --> 00:00:27,900
+Chrome ran the check on this device;
+the text stayed in the browser.
+
+7
+00:00:32,000 --> 00:00:35,000
+The extension warns beside the page.
+
+8
+00:00:35,000 --> 00:00:41,440
+On our test computer, the private model was unavailable,
+so this requested check used cloud fallback.
+
+9
+00:00:44,400 --> 00:00:47,200
+She can ask for a second opinion.
+
+10
+00:00:47,200 --> 00:00:53,600
+When web verification is unavailable, Scam Shield says
+the explanation uses only this page
+
+11
+00:00:53,600 --> 00:00:57,760
+and points her to the official app or a saved number.
+
+12
+00:00:58,000 --> 00:01:05,400
+In one small synthetic run, four of four suspicious pages
+were flagged, and none of four ordinary pages falsely flagged.
+
+13
+00:01:05,400 --> 00:01:09,200
+Real-world accuracy is untested.
+
+14
+00:01:09,500 --> 00:01:11,500
+She stays in control.
+
+15
+00:01:11,500 --> 00:01:14,000
+Close the page. Open the official delivery app.
+
+16
+00:01:14,000 --> 00:01:17,660
+Or call a number she already trusts.
+
+17
+00:01:19,400 --> 00:01:22,000
+Try the live checker and inspect the source.
+
+18
+00:01:22,000 --> 00:01:26,360
+Give someone we love a calm moment
+before the next click.

@@ -1,5 +1,6 @@
 import { loadRemoteConfig, settings } from "./firebase";
 import { hasPromptApi, prepareLocalModel, screenPage, screenScreenshot, secondOpinion, type Verdict } from "./models";
+import { opinionSourceNote } from "./opinion";
 import { snapshotActiveTab, type PageSnapshot } from "./page";
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -155,9 +156,7 @@ $("second").addEventListener("click", async () => {
     }
     textNodes.push(document.createTextNode(opinion.text.slice(position)));
     $("opinion-text").replaceChildren(...textNodes);
-    $("opinion-source-note").textContent = opinion.sources.length
-      ? "Open these sources to check the evidence yourself."
-      : "No supporting web sources were returned. Verify with the organisation directly before acting.";
+    $("opinion-source-note").textContent = opinionSourceNote(opinion.searchFellBack, opinion.sources.length > 0);
     $("opinion-links").hidden = !opinion.sources.length;
     $("opinion-source-list").replaceChildren(...opinion.sources.map(({ title, url }, index) => {
       const link = document.createElement("a");
