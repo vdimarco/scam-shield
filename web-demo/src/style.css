@@ -56,7 +56,7 @@ svg { display: block; }
 }
 .hero-copy > p { max-width: 590px; margin: 0; font-size: clamp(1.25rem, 1.55vw, 1.5rem); line-height: 1.46; }
 .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px 28px; margin-top: 48px; }
-.hero-actions > span { font-size: 1rem; white-space: nowrap; }
+.hero-actions > a:not(.button) { font-size: 1rem; font-weight: 700; text-underline-offset: 4px; }
 .button {
   display: inline-flex;
   align-items: center;
@@ -225,7 +225,7 @@ h2 { font: 700 clamp(2.9rem, 4vw, 3.9rem)/1.06 Georgia, 'Times New Roman', serif
   .site-header nav a:last-child { display: none; }
   .hero-copy { padding-top: 50px; }
   .hero h1 { font-size: clamp(2.75rem, 11.1vw, 3.35rem); }
-  .hero-actions > span { font-size: .88rem; }
+  .hero-actions > a:not(.button) { font-size: .88rem; }
   .button { min-height: 54px; font-size: 1rem; }
   .hero-image { min-height: 280px; }
   .parcel-page { padding: 16px; }
