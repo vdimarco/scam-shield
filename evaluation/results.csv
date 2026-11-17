@@ -1,1 +1,9 @@
 case_id,run,mode,observed_risk,inference_source
+parcel-fee,1,requested,suspicious,cloud
+family-gift-card,1,requested,suspicious,cloud
+tech-support,1,requested,suspicious,cloud
+prize-refund,1,requested,suspicious,cloud
+parcel-status,1,requested,safe,cloud
+bank-safety,1,requested,safe,cloud
+family-note,1,requested,safe,cloud
+shop-checkout,1,requested,safe,cloud

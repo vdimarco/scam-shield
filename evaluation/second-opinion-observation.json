@@ -1,0 +1,51 @@
+{
+  "text": "I couldn't reach the cloud. Check your connection and try again.",
+  "sourceNote": "",
+  "sources": [],
+  "citationLinks": [],
+  "searchSuggestionsVisible": false,
+  "observedAt": "2026-11-17T18:28:08.181Z",
+  "fixture": "parcel-fee",
+  "firstPassRisk": "suspicious",
+  "firstPassSource": "This page's content was sent to the cloud for this check.",
+  "diagnostic": {
+    "observedAt": "2026-11-17T18:30:11Z",
+    "repeatAttempt": "Same visible error with zero sources",
+    "requestModel": "gemini-3.8-flash",
+    "httpStatus": 429,
+    "firebaseCode": "AI/fetch-error",
+    "message": "You exceeded your current quota, please check your plan and billing details."
+  },
+  "recordNote": "Top-level fields document the original pre-fallback failure. fallbackAttempt documents a later build; neither attempt returned grounding sources.",
+  "fallbackAttempt": {
+    "observedAt": "2026-11-17T18:36:12.255Z",
+    "fixture": "parcel-fee",
+    "extensionBuild": "dist/sidepanel.js built November 17, 2026 at 13:34:21 EST",
+    "firstPass": {
+      "risk": "suspicious",
+      "reason": "This message uses fake urgency by threatening to return a parcel unless you immediately pay a small fee and enter your card details.",
+      "source": "This page's content was sent to the cloud for this check."
+    },
+    "text": "What this is\nThis is a fake delivery message pretending to be from a fictional company called Northstar Parcel. It claims your package will be returned unless you pay a small fee right away. I could not independently verify its claims because I have no web sources and the page content is untrusted.\n\nWhy I think so\nThe page uses false urgency by giving you only thirty minutes to act. It also asks for your credit card details and uses a hidden link address.\n\nWhat to do now\nDo not enter your card details or personal information. Leave the page immediately and delete the message.",
+    "sourceNote": "No supporting web sources were returned. Verify with the organisation directly before acting.",
+    "sources": [],
+    "citationLinks": [],
+    "searchSuggestionsVisible": false,
+    "requestTrace": [
+      {
+        "model": "gemini-3.5-flash-lite",
+        "httpStatus": 200
+      },
+      {
+        "model": "gemini-3.8-flash",
+        "httpStatus": 429
+      },
+      {
+        "model": "gemini-3.5-flash-lite",
+        "httpStatus": 200
+      }
+    ],
+    "captureMethod": "Chromium print-to-PDF rasterized at 96 dpi while synthetic fixture tab stayed active",
+    "image": "../demo/frames/04-second-opinion-fallback.png"
+  }
+}

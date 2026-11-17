@@ -1,0 +1,82 @@
+[
+  {
+    "caseId": "parcel-fee",
+    "expected": "suspicious",
+    "risk": "suspicious",
+    "source": "cloud",
+    "headline": "Possible scam. Pause here.",
+    "reason": "This page demands an urgent fee to deliver a package you were not expecting, which is a common trick used by scammers.",
+    "sourceText": "This page's content was sent to the cloud for this check.",
+    "observedAt": "2026-11-17T18:21:00.999Z"
+  },
+  {
+    "caseId": "family-gift-card",
+    "expected": "suspicious",
+    "risk": "suspicious",
+    "source": "cloud",
+    "headline": "Possible scam. Pause here.",
+    "reason": "This message uses a common scam tactic where a stranger pretends to be a family member in an emergency and asks for gift card codes in secret.",
+    "sourceText": "This page's content was sent to the cloud for this check.",
+    "observedAt": "2026-11-17T18:21:04.089Z"
+  },
+  {
+    "caseId": "tech-support",
+    "expected": "suspicious",
+    "risk": "suspicious",
+    "source": "cloud",
+    "headline": "Possible scam. Pause here.",
+    "reason": "This page uses fake urgent security warnings to trick you into downloading remote support software.",
+    "sourceText": "This page's content was sent to the cloud for this check.",
+    "observedAt": "2026-11-17T18:21:07.156Z"
+  },
+  {
+    "caseId": "prize-refund",
+    "expected": "suspicious",
+    "risk": "suspicious",
+    "source": "cloud",
+    "headline": "Possible scam. Pause here.",
+    "reason": "This page creates a false sense of urgency and asks you to enter sensitive bank account and code information to claim a surprise cash reward.",
+    "sourceText": "This page's content was sent to the cloud for this check.",
+    "observedAt": "2026-11-17T18:21:09.214Z"
+  },
+  {
+    "caseId": "parcel-status",
+    "expected": "safe",
+    "risk": "safe",
+    "source": "cloud",
+    "headline": "No obvious scam signs found.",
+    "reason": "This is a local test page for a fictional parcel service that explicitly states no payment or action is required.",
+    "sourceText": "This page's content was sent to the cloud for this check.",
+    "observedAt": "2026-11-17T18:21:11.422Z"
+  },
+  {
+    "caseId": "bank-safety",
+    "expected": "safe",
+    "risk": "safe",
+    "source": "cloud",
+    "headline": "No obvious scam signs found.",
+    "reason": "This is a harmless educational page from a fictional credit union that explains how to avoid scams without asking for any personal information or passwords.",
+    "sourceText": "This page's content was sent to the cloud for this check.",
+    "observedAt": "2026-11-17T18:21:13.631Z"
+  },
+  {
+    "caseId": "family-note",
+    "expected": "safe",
+    "risk": "safe",
+    "source": "cloud",
+    "headline": "No obvious scam signs found.",
+    "reason": "This is a simple fictional note from family with no requests for information, money, or action.",
+    "sourceText": "This page's content was sent to the cloud for this check.",
+    "observedAt": "2026-11-17T18:21:16.697Z"
+  },
+  {
+    "caseId": "shop-checkout",
+    "expected": "safe",
+    "risk": "safe",
+    "source": "cloud",
+    "headline": "No obvious scam signs found.",
+    "reason": "This is a safe local test page for an online checkout that clearly states the site is fictional and payment fields are disabled.",
+    "sourceText": "This page's content was sent to the cloud for this check.",
+    "observedAt": "2026-11-17T18:21:18.905Z"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "capturedAt": "2026-11-17T18:28:05.225Z",
+  "localModel": "unavailable",
+  "captureMethod": "Chromium print-to-PDF rasterized at 96 dpi while fixture tab remained active; images show actual extension DOM",
+  "parcel": {
+    "risk": "suspicious",
+    "headline": "Possible scam. Pause here.",
+    "reason": "This message uses fake urgency by threatening to return a package unless you pay a small fee immediately with your credit card.",
+    "sourceText": "This page's content was sent to the cloud for this check."
+  },
+  "legitimate": {
+    "risk": "safe",
+    "headline": "No obvious scam signs found.",
+    "reason": "This is a test page that clearly states no payment or action is required.",
+    "sourceText": "This page's content was sent to the cloud for this check."
+  },
+  "secondOpinion": {
+    "image": "04-second-opinion.png",
+    "observation": "evaluation/second-opinion-observation.json",
+    "sources": 0
+  },
+  "fallbackSecondOpinion": {
+    "capturedAt": "2026-11-17T18:36:12.255Z",
+    "image": "04-second-opinion-fallback.png",
+    "observation": "../../evaluation/second-opinion-observation.json",
+    "sourceLinks": 0,
+    "captureMethod": "Chromium print-to-PDF rasterized at 96 dpi while synthetic parcel fixture stayed active"
+  }
+}

@@ -1,12 +1,16 @@
 # Evaluation run notes
 
-- Date and timezone:
-- Extension build or commit:
-- Chrome version and operating system:
-- Local model available and initialized?
-- Firebase test project / cloud model (non-secret identifier only):
-- Runs completed and omitted cases:
-- Unexpected UI or network errors:
-- Reviewer initials:
+- Date and timezone: November 17, 2026, 18:21:00–18:21:18 UTC (13:21 EST).
+- Extension build or commit: final risk-and-reason UI working tree at `7d1a257`; `dist/sidepanel.js` built November 17 at 13:18:56 EST. This pass supersedes the earlier pre-schema-change run.
+- Chrome version and operating system: Chromium 155.0.8059.84, Omarchy Linux 4.0.6.
+- Local model available and initialized? `LanguageModel.availability()` returned `unavailable`. Automatic/on-device screening was not run.
+- Firebase test project / cloud model: private test project with an already registered App Check debug token; requested-check model configured in source as `gemini-3.5-flash-lite`. No token or project credential is stored in this evaluation folder.
+- Runs completed and omitted cases: one requested check for each of eight synthetic local fixtures. All eight returned a visible risk and cloud source label. Four of four suspicious fixtures were marked suspicious; four of four legitimate fixtures were marked safe. There were zero `unsure` results, false alarms, or UI errors in this single pass.
+- Unexpected UI or network errors: none during these eight checks. The local model was unavailable, so the on-device path remains unverified in this environment.
+- Original second-opinion attempt, before the quota fallback was added: tapping **Get a second opinion** on the synthetic parcel page displayed “I couldn't reach the cloud. Check your connection and try again.” It returned no source links. A repeat trace showed HTTP 429 (`AI/fetch-error`) for `gemini-3.8-flash`; the service reported that the current quota was exceeded. The [original UI capture](../demo/frames/04-second-opinion.png) preserves this failure.
+- Later fallback build: `dist/sidepanel.js` built November 17 at 13:34:21 EST. At 18:36:12 UTC, one real parcel-page check followed by a second-opinion tap produced HTTP 200 (`gemini-3.5-flash-lite`) for the first check, HTTP 429 (`gemini-3.8-flash`) for the search-grounded attempt, then HTTP 200 (`gemini-3.5-flash-lite`) for the ungrounded fallback. The panel returned a plain-language second opinion that said it could not independently verify the claims. It displayed “No supporting web sources were returned. Verify with the organisation directly before acting.” There were zero source or citation links. See the [complete second-opinion history](second-opinion-observation.json) and [fallback UI capture](../demo/frames/04-second-opinion-fallback.png). Grounded second opinion remains unverified. This later check is separate from the eight-case classification pass above.
+- Reviewer: Codex, using the unpacked extension in a separate Chromium test profile.
 
-Attach screenshots only if they show synthetic fixtures and contain no keys, tokens, or personal information.
+Raw classifications are in [`results.csv`](results.csv); the exact visible headlines, reasons, and source labels are in [`observations.json`](observations.json). These are one-pass results on synthetic localhost pages, not a real-world accuracy estimate. The fixture banner explicitly says the pages are synthetic, and localhost removes real sender/domain reputation signals.
+
+The panel result images in [`../demo/frames/`](../demo/frames/) were captured from Chromium's actual extension DOM using print-to-PDF while the fixture tab remained active, then rasterized at 96 dpi. Foregrounding the panel tab would trigger the extension's page-change state, so these captures preserve the observed result. The 38-second [local walkthrough](../demo/scam-shield-real-check.mp4) is explicitly labelled as a composite of separate real checks. It is not a continuous screen recording.

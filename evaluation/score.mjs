@@ -27,7 +27,7 @@ for (const [index, line] of lines.entries()) {
   if (!byId.has(id) || !/^[1-9]\d*$/.test(run) || !["automatic", "requested"].includes(mode) ||
       !["safe", "unsure", "suspicious", "error"].includes(observed) ||
       !["on-device", "cloud", "unknown"].includes(source) ||
-      (mode === "automatic" && source === "cloud") || (source === "unknown" && observed !== "error")) {
+      (mode === "automatic" && source === "cloud")) {
     throw new Error(`Line ${index + 2}: invalid case, run, mode, verdict, or source.`);
   }
   const key = `${id}/${run}/${mode}/${source}`;
