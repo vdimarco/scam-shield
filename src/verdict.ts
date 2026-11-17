@@ -1,3 +1,5 @@
+import type { PageSnapshot } from "./page";
+
 export type Risk = "safe" | "unsure" | "suspicious";
 
 export interface Verdict {
@@ -32,8 +34,14 @@ export function parseVerdict(text: string, source: string | undefined): Verdict 
   return { risk, reason: reason.trim(), ranOnDevice };
 }
 
-export function accountForPartialPage(verdict: Verdict, truncated: boolean): Verdict {
-  return truncated && verdict.risk === "safe"
-    ? { ...verdict, risk: "unsure", reason: "Only part of this page was checked. Verify the site independently before acting." }
-    : verdict;
+export function accountForPageEvidence(verdict: Verdict, page: PageSnapshot): Verdict {
+  if (verdict.risk !== "safe") return verdict;
+  if (page.truncated) return { ...verdict, risk: "unsure", reason: "Only part of this page was checked. Verify the site independently before acting." };
+  if (page.asksForPassword || page.asksForCard) {
+    return { ...verdict, risk: "unsure", reason: "This page asks for sensitive details. Confirm its address before sharing them." };
+  }
+  if (page.formsPostElsewhere || page.mismatchedLinks) {
+    return { ...verdict, risk: "unsure", reason: "A form or link points to another site. Check its destination before acting." };
+  }
+  return verdict;
 }

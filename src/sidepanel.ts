@@ -67,6 +67,7 @@ async function check(requested: boolean, knownPage?: PageSnapshot) {
   if (!requested && (!localReady || !settings.autoScreen())) return;
   if (requested) clearTimeout(timer);
   const request = ++generation;
+  let deadline: number | undefined;
   try {
     const page = knownPage ?? await snapshotActiveTab(settings.maxPageChars());
     if (request !== generation) return;
@@ -79,7 +80,13 @@ async function check(requested: boolean, knownPage?: PageSnapshot) {
     observedPage = snapshot;
     showStatus("Checking…");
     $("site").textContent = new URL(page.url).hostname;
-    const verdict = await screenPage(page, { requested });
+    // The SDK cannot cancel on-device prompts; this only stops the UI waiting.
+    const verdict = await Promise.race([
+      screenPage(page, { requested }),
+      new Promise<never>((_, reject) => {
+        deadline = window.setTimeout(() => reject(new Error("Check timed out")), 60_000);
+      }),
+    ]);
     void bumpLedger(verdict.ranOnDevice).catch((err) => console.warn("Scam Shield: could not save check count", err));
     if (request !== generation) return;
     const latest = await snapshotActiveTab(settings.maxPageChars());
@@ -97,6 +104,8 @@ async function check(requested: boolean, knownPage?: PageSnapshot) {
     if (request !== generation) return;
     console.error("Scam Shield: check failed", err);
     showStatus("I couldn't check this page.", "Try the Check this page button.");
+  } finally {
+    clearTimeout(deadline);
   }
 }
 

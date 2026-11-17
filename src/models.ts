@@ -1,7 +1,8 @@
 import { getGenerativeModel, InferenceMode, Schema, type Part } from "firebase/ai";
 import { ai, settings } from "./firebase";
 import type { PageSnapshot } from "./page";
-import { accountForPartialPage, parseVerdict, type Verdict } from "./verdict";
+import { retryAutomaticLocal } from "./retry-local";
+import { accountForPageEvidence, parseVerdict, type Verdict } from "./verdict";
 
 export type { Verdict } from "./verdict";
 
@@ -78,8 +79,9 @@ function describe(page: PageSnapshot): string {
 
 export async function screenPage(page: PageSnapshot, opts: { requested: boolean }): Promise<Verdict> {
   const model = opts.requested ? requestedScreener : ambientScreener;
-  const { response } = await model.generateContent(`${SCREEN_INSTRUCTIONS}\n\n${describe(page)}`);
-  return accountForPartialPage(parseVerdict(response.text(), response.inferenceSource), page.truncated);
+  const { response } = await retryAutomaticLocal(!opts.requested,
+    () => model.generateContent(`${SCREEN_INSTRUCTIONS}\n\n${describe(page)}`));
+  return accountForPageEvidence(parseVerdict(response.text(), response.inferenceSource), page);
 }
 
 export async function screenScreenshot(file: File): Promise<Verdict> {
