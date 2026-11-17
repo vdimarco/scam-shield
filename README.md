@@ -86,6 +86,8 @@ We also tested the `ONLY_ON_DEVICE` screener against [40 archived real sites](ev
 
 This includes one scam marked safe and two legitimate pages flagged. Thirty-eight cases reported `on-device`, two errors had unknown source, and none reported cloud inference. The initial [eight-case smoke run](evaluation/real-world/results-8.json) had two suspicious, one unsure, and one error among scams; one suspicious and three safe among legitimate pages. Three of those eight cases changed outcome when included in the 40-case run. These are observed results from a small convenience sample, not a real-world accuracy estimate. The 40 URLs represent 38 unique extracted content patterns, and static text snapshots cannot reproduce every rendered or dynamic signal.
 
+A follow-up [200-site review and independent 80-site evaluation](evaluation/real-world/README.md) exposed unsafe green verdicts on shopping pages and intermittent on-device timeouts. The extension now changes a safe verdict to unsure when a page asks for sensitive details or has a redirecting form or link. On the fresh 80-site set, the final local run marked 30 scams suspicious, nine unsure, none safe, and timed out on one; among 40 legitimate sites, one was marked suspicious. The result is a bounded archived-page test, not a live-browsing accuracy estimate.
+
 The [38-second walkthrough](demo/scam-shield-real-check.mp4) combines labelled synthetic pages
 and real extension result captures. It is a silent composite of separate checks, not one
 continuous recording. The [public 88-second judge video](https://youtu.be/49NiHLv1WZg) is the
