@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Scam Shield",
+  "version": "0.1.0",
+  "description": "Screens the pages you open for scams on your own device, and asks the cloud only when you say so.",
+  "minimum_chrome_version": "139",
+  "permissions": ["sidePanel", "scripting", "tabs", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "action": { "default_title": "Open Scam Shield" },
+  "side_panel": { "default_path": "sidepanel.html" },
+  "background": { "service_worker": "background.js", "type": "module" }
+}

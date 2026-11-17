@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Scam Shield</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Scam Shield</h1>
+      <p id="mode" class="mode">Starting…</p>
+    </header>
+
+    <section id="setup" class="card" hidden>
+      <p id="setup-text">Turn on private screening. The checking model is downloaded once and then runs on this computer.</p>
+      <button id="enable" class="primary">Turn on private screening</button>
+      <progress id="download" max="1" value="0" hidden></progress>
+    </section>
+
+    <section id="verdict" class="card verdict" data-risk="idle" aria-live="polite">
+      <p class="site" id="site"></p>
+      <h2 id="headline">Open a page and I'll take a look.</h2>
+      <p id="reason"></p>
+      <ul id="tactics"></ul>
+      <p class="source" id="source"></p>
+      <div class="actions">
+        <button id="check">Check this page</button>
+        <button id="second" class="primary" hidden>Get a second opinion</button>
+      </div>
+    </section>
+
+    <section id="opinion" class="card" hidden>
+      <h3>Second opinion</h3>
+      <p class="source">This one page was sent to the cloud because you asked.</p>
+      <div id="opinion-text"></div>
+      <p id="opinion-source-note" class="source"></p>
+      <div id="opinion-links" hidden>
+        <h4>Sources to check</h4>
+        <ul id="opinion-source-list"></ul>
+      </div>
+      <div id="search-suggestions"></div>
+    </section>
+
+    <section class="card">
+      <h3>Check a screenshot</h3>
+      <p>Got a strange text or message? Add a screenshot of it.</p>
+      <p class="source">Choosing a screenshot starts a check. The image may be sent to Firebase AI Logic in the cloud.</p>
+      <input id="shot" type="file" accept="image/png,image/jpeg" />
+    </section>
+
+    <footer>
+      <span id="ledger-local">0</span> pages checked on this computer ·
+      <span id="ledger-cloud">0</span> sent to the cloud
+    </footer>
+
+    <script type="module" src="/src/sidepanel.ts"></script>
+  </body>
+</html>

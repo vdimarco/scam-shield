@@ -1,0 +1,22 @@
+{
+  "name": "scam-shield",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "scripts": {
+    "dev": "vite build --watch --mode development",
+    "build": "npm run build:judge",
+    "build:judge": "tsc --noEmit && vite build --mode judge && node scripts/check-distribution.mjs judge",
+    "build:release": "node scripts/require-production-app-check.mjs && tsc --noEmit && vite build && node scripts/check-distribution.mjs production",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "firebase": "^13.3.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.3.7",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  }
+}

@@ -1,0 +1,10 @@
+[
+  { "id": "parcel-fee", "file": "parcel-fee.html", "expected": "suspicious", "why": "Delivery pressure, small fee, card request, offsite form, and a mismatched destination link." },
+  { "id": "family-gift-card", "file": "family-gift-card.html", "expected": "suspicious", "why": "Pretends to be family, demands gift-card codes, and discourages a verification call." },
+  { "id": "tech-support", "file": "tech-support.html", "expected": "suspicious", "why": "Scare tactic and a request to install remote-control software." },
+  { "id": "prize-refund", "file": "prize-refund.html", "expected": "suspicious", "why": "Expiring refund bait asks for bank details and a one-time code." },
+  { "id": "parcel-status", "file": "parcel-status.html", "expected": "safe", "why": "Routine status update with no payment or urgent action." },
+  { "id": "bank-safety", "file": "bank-safety.html", "expected": "safe", "why": "Educational article mentions scam tactics without requesting secrets or money." },
+  { "id": "family-note", "file": "family-note.html", "expected": "safe", "why": "Ordinary family message with no financial demand or urgency." },
+  { "id": "shop-checkout", "file": "shop-checkout.html", "expected": "safe", "why": "Transparent checkout; card fields alone should not prove fraud." }
+]
