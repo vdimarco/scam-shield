@@ -24,7 +24,7 @@ If a computer has no local model, automatic screening stays off rather than fall
 the cloud. The footer counts pages checked locally and pages sent to the cloud while the panel
 is open.
 
-Other Firebase products: App Check (required, per-install debug provider for private judging) and Remote Config
+Other Firebase products: App Check (per-install debug registration for cloud checks in the private judge build) and Remote Config
 (`cloud_model`, `auto_screen`, `max_page_chars`).
 
 The routing lives in [src/models.ts](src/models.ts).
@@ -45,14 +45,14 @@ different App Check token on each install, so there is no shared token in source
    This is the same as `npm run build:judge`.
 2. Use desktop Chrome 148+ with at least 22 GB free on the volume containing its profile for the initial model download. Chrome removes the model if free space later falls below 10 GB. For screenshot checks, enable `chrome://flags/#prompt-api-for-gemini-nano-multimodal-input` if Chrome does not already expose image input, then restart. [Chrome's requirements](https://developer.chrome.com/docs/ai/prompt-api) also call for an unmetered initial download.
 3. Open `chrome://extensions`, turn on Developer mode, **Load unpacked**, pick `dist/`.
-4. Click the extension icon to open the side panel. Right-click the panel, select **Inspect**,
-   and privately send the generated `App Check debug token` shown in the console to the project
-   owner. The owner registers it in the demo Firebase project under **Security > App Check >
-   Apps > Manage debug tokens**. Reload the extension after the owner confirms registration.
-5. Click **Turn on private screening** (downloads the local model once), then try the labelled
-   synthetic examples linked from the landing page. The panel remembers this choice and resumes
-   private screening on reopen when Chrome reports the model is available. Manual cloud checks
-   require step 4.
+4. Click the extension icon to open the side panel, then **Turn on private screening**. This
+   downloads Chrome's local model once. Try the labelled synthetic examples linked from the
+   landing page. The panel remembers this choice and resumes private screening on reopen when
+   Chrome reports the model is available. This private path does not need App Check registration.
+5. For manual checks that use Firebase's cloud model or a cloud second opinion, right-click the
+   panel, select **Inspect**, and privately send the generated `App Check debug token` shown in
+   the console to the project owner. The owner registers it in the demo Firebase project under
+   **Security > App Check > Apps > Manage debug tokens**. Reload after registration.
 
 `npm run dev` rebuilds on change; reload the extension to pick it up.
 
