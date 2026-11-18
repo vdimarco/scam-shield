@@ -29,38 +29,53 @@ const cloudSchema = Schema.object({
   },
 });
 
-const onDeviceParams = { promptOptions: { responseConstraint: deviceSchema } };
+const textDeviceParams = {
+  createOptions: {
+    expectedInputs: [{ type: "text" as const, languages: ["en"] }],
+    expectedOutputs: [{ type: "text" as const, languages: ["en"] }],
+  },
+  promptOptions: { responseConstraint: deviceSchema },
+};
+const screenshotDeviceParams = { promptOptions: { responseConstraint: deviceSchema } };
+const inCloudParams = {
+  model: "gemini-3.5-flash-lite",
+  generationConfig: { responseMimeType: "application/json", responseSchema: cloudSchema },
+};
 
 /**
  * Automatic screening. ONLY_ON_DEVICE: everything the user browses is checked,
  * so none of it may leave the computer. If there is no local model this throws,
  * and the app falls back to on-demand checks instead of streaming browsing to the cloud.
  */
-const ambientScreener = getGenerativeModel(ai, {
-  mode: InferenceMode.ONLY_ON_DEVICE,
-  onDeviceParams,
-});
+let ambientScreener: ReturnType<typeof getGenerativeModel> | undefined;
+function getAmbientScreener() {
+  if (!hasPromptApi()) throw new Error("Chrome's on-device model is unavailable.");
+  return ambientScreener ??= getGenerativeModel(ai, {
+    mode: InferenceMode.ONLY_ON_DEVICE,
+    onDeviceParams: textDeviceParams,
+  });
+}
 
 /**
  * A check the user asked for. PREFER_ON_DEVICE: local when possible, cloud
  * otherwise, and the UI says which one ran.
  */
-const requestedScreener = getGenerativeModel(ai, {
-  mode: InferenceMode.PREFER_ON_DEVICE,
-  onDeviceParams,
-  inCloudParams: {
-    model: "gemini-3.5-flash-lite",
-    generationConfig: { responseMimeType: "application/json", responseSchema: cloudSchema },
-  },
-});
+function getRequestedScreener(screenshot = false) {
+  return getGenerativeModel(ai, {
+    mode: InferenceMode.PREFER_ON_DEVICE,
+    onDeviceParams: screenshot ? screenshotDeviceParams : textDeviceParams,
+    inCloudParams,
+  });
+}
 
 export function hasPromptApi(): boolean {
-  return "LanguageModel" in globalThis;
+  const model = (globalThis as { LanguageModel?: { availability?: unknown; create?: unknown } | null }).LanguageModel;
+  return typeof model?.availability === "function" && typeof model?.create === "function";
 }
 
 /** Must be called from a click handler: Chrome requires it to start the model download. */
 export function prepareLocalModel(onProgress: (fraction: number) => void): Promise<void> {
-  return ambientScreener.initializeDeviceModel(onProgress);
+  return getAmbientScreener().initializeDeviceModel(onProgress);
 }
 
 function describe(page: PageSnapshot): string {
@@ -77,9 +92,11 @@ function describe(page: PageSnapshot): string {
 }
 
 export async function screenPage(page: PageSnapshot, opts: { requested: boolean }): Promise<Verdict> {
-  const model = opts.requested ? requestedScreener : ambientScreener;
+  const model = opts.requested ? getRequestedScreener() : getAmbientScreener();
   const { response } = await model.generateContent(`${SCREEN_INSTRUCTIONS}\n\n${describe(page)}`);
-  return accountForPageEvidence(parseVerdict(response.text(), response.inferenceSource), page);
+  const verdict = parseVerdict(response.text(), response.inferenceSource);
+  if (!opts.requested && verdict.ranOnDevice !== true) throw new Error("Automatic check did not report on-device inference.");
+  return accountForPageEvidence(verdict, page);
 }
 
 export async function screenScreenshot(file: File): Promise<Verdict> {
@@ -90,7 +107,7 @@ export async function screenScreenshot(file: File): Promise<Verdict> {
     reader.readAsDataURL(file);
   });
   const image: Part = { type: "inlineData", inlineData: { data, mimeType: file.type } };
-  const { response } = await requestedScreener.generateContent([
+  const { response } = await getRequestedScreener(true).generateContent([
     `${SCREEN_INSTRUCTIONS}\n\nThe content is a screenshot of a message the person received.`,
     image,
   ]);

@@ -1,0 +1,29 @@
+{
+  "browser": "157.0.8103.78",
+  "modelAvailability": "available",
+  "fixture": "Synthetic local parcel-fee.html; no real scam website opened",
+  "capture": "CDP screenshot recording of Chrome's native extension side panel while the synthetic fixture tab remained active; trusted enable click and requested second-opinion button action against the real extension DOM",
+  "timings": {
+    "started": 0,
+    "enableClicked": 1.5,
+    "localReady": 1.54,
+    "checkResult": 3.41,
+    "sourceScrolled": 3.41,
+    "secondClicked": 5.91,
+    "secondResult": 6.66,
+    "noteScrolled": 7.86,
+    "ended": 10.86
+  },
+  "check": {
+    "site": "127.0.0.1",
+    "headline": "Possible scam. Pause here.",
+    "source": "This page's content was checked on this computer.",
+    "risk": "suspicious",
+    "mode": "Automatic checks run on this computer. A manual check may use the cloud; each result shows where it ran."
+  },
+  "secondOpinion": {
+    "note": "",
+    "text": "I couldn't reach the cloud. Check your connection and try again.",
+    "links": 0
+  }
+}

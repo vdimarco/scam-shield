@@ -1,6 +1,8 @@
 # Scam Shield landing and live judge demo
 
-The page tells the grandmother story and includes a separate live check of pasted text. The parcel example above it is explicitly illustrative. The live check calls Firebase AI Logic in `PREFER_ON_DEVICE` mode and displays the SDK-reported inference source. In Chrome Desktop with the Prompt API available it can run locally; otherwise the request can use Gemini in the cloud.
+The page tells the grandmother story and includes a separate live check of pasted text. The parcel example above it is explicitly illustrative. The live checker has two explicit routes: after the user prepares Chrome's built-in model, `ONLY_ON_DEVICE` checks keep text in the browser; `PREFER_ON_DEVICE` checks can use Gemini in the cloud if the local model is unavailable. Each result displays the SDK-reported inference source. The private route never falls back to the cloud.
+
+Chrome's [Prompt API requirements](https://developer.chrome.com/docs/ai/prompt-api) apply to the private route. Availability depends on the browser, hardware, storage, and model download; the page keeps the private check disabled until preparation completes. The cloud-capable route remains usable when the private model cannot be prepared.
 
 ## Run
 

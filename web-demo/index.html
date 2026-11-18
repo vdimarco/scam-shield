@@ -38,14 +38,14 @@
 
       <section class="video-section" id="demo-video" aria-labelledby="demo-video-title">
         <div class="video-inner">
-          <p class="example-label">88-second narrated demo</p>
+          <p class="example-label">70-second narrated demo</p>
           <h2 id="demo-video-title">A moment to pause, shown in the product.</h2>
           <video controls preload="metadata" width="1280" height="720" poster="/assets/grandmother-laptop.webp">
             <source src="/scam-shield-judge-final.mp4" type="video/mp4" />
             <track src="/scam-shield-judge-final.vtt" kind="captions" srclang="en" label="English" default />
             Your browser cannot play this video. <a href="/scam-shield-judge-final.mp4">Download the demo</a>.
           </video>
-          <p class="video-note">The parcel page and portrait are illustrative. The extension footage is a real check against a synthetic local page; the requested result used cloud fallback. <a href="https://youtu.be/49NiHLv1WZg" target="_blank" rel="noopener noreferrer">View the earlier YouTube cut</a>.</p>
+          <p class="video-note">The parcel page and portrait are illustrative. The extension footage shows an actual on-device check of a synthetic local page; a page still is shown beside Chrome's native side panel. <a href="https://youtu.be/49NiHLv1WZg" target="_blank" rel="noopener noreferrer">View the earlier YouTube cut</a>.</p>
         </div>
       </section>
 
@@ -117,7 +117,7 @@
       <section class="live-section" id="try-it" aria-labelledby="live-title">
         <div class="live-heading">
           <h2 id="live-title">Try a real check.</h2>
-          <p>Choose a fictional message, press Check this message, then read the result, what to do next, and where the check ran. You can also paste your own text.</p>
+          <p>Choose a fictional message or paste your own. Prepare Chrome’s model for a private check, or use the check with cloud fallback. Each result says where it ran.</p>
         </div>
         <div class="live-grid">
           <form class="live-form" id="live-form">
@@ -129,8 +129,15 @@
             </select>
             <label for="message-input">Message to check</label>
             <textarea id="message-input" maxlength="6000" required></textarea>
-            <p class="live-privacy">A check may send this text to Firebase AI Logic in the cloud. Please remove names, account details, and other private information before checking.</p>
-            <button class="button button-primary" id="live-check" type="submit">Check this message <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></button>
+            <p class="live-privacy">A private check keeps this text in your browser. A check with cloud fallback may send it to Firebase AI Logic. Remove names and account details before using the cloud option.</p>
+            <div class="private-setup">
+              <button class="button button-secondary" id="prepare-private" type="button">Prepare private model</button>
+              <progress id="private-download" max="1" aria-label="Private model download progress" hidden></progress>
+              <p id="private-status" role="status">Private checks need Chrome’s built-in model. The first setup may download it.</p>
+              <p><a href="https://developer.chrome.com/docs/ai/prompt-api" target="_blank" rel="noopener noreferrer">Check Chrome requirements</a></p>
+            </div>
+            <button class="button button-primary" id="private-check" type="submit" disabled>Check privately on this device</button>
+            <button class="button button-secondary" id="live-check" type="submit">Check with cloud fallback <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></button>
           </form>
           <div class="live-answer" aria-live="polite" aria-atomic="true">
             <p class="live-answer-label">Actual result</p>

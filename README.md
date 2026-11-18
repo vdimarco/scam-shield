@@ -28,9 +28,9 @@ The routing lives in [src/models.ts](src/models.ts).
 
 ## Hosted web demo
 
-The [public HTTPS demo](https://scam-shield-landing-phi.vercel.app/#try-it) lets anyone check a fictional sample message or their own short text with Firebase AI Logic. The live checker uses `PREFER_ON_DEVICE`, falls back to the cloud when needed, and labels the reported inference source. Its App Check provider is reCAPTCHA Enterprise. Remove personal details before submitting text. The separate parcel-page illustration above the checker is explicitly a sample display, not a scan result. The hosted text checker does not install or replace the Chrome extension. Its source and build instructions are in [web-demo](web-demo/README.md).
+The [public HTTPS demo](https://scam-shield-landing-phi.vercel.app/#try-it) lets anyone check a fictional sample message or their own short text with Firebase AI Logic. In supported desktop Chrome, **Prepare private model** downloads Chrome's built-in model before a separate `ONLY_ON_DEVICE` check. The other button uses `PREFER_ON_DEVICE` and may fall back to the cloud. Each result labels the reported inference source. The cloud route uses reCAPTCHA Enterprise App Check; remove personal details before choosing it. The parcel-page illustration above the checker is a sample display, not a scan result. The hosted checker does not install or replace the Chrome extension. Its source and build instructions are in [web-demo](web-demo/README.md).
 
-On November 17, 2026, the hosted checker also returned an [on-device verdict in Chrome 157](demo/hosted-on-device-proof.png) after the browser downloaded its local model. The result explicitly said the checked text stayed in the browser. The extension's automatic on-device path is still awaiting a separate live run.
+On November 17, 2026, the hosted checker returned an [on-device verdict in Chrome 157](demo/hosted-on-device-proof.png) after the browser downloaded its local model. A later private-only check in a model-ready Chrome profile also completed while non-local page requests were blocked. The result explicitly said the checked text stayed in the browser. The extension's automatic path was separately verified against a synthetic local page in that profile on November 18.
 
 ## Run the private judge build
 
@@ -40,7 +40,7 @@ different App Check token on each install, so there is no shared token in source
 
 1. `cp .env.example .env.local`, then `npm install` and `npm run build`.
    This is the same as `npm run build:judge`.
-2. In Chrome 139+, enable `chrome://flags/#prompt-api-for-gemini-nano-multimodal-input` and restart.
+2. Use desktop Chrome 148+ with at least 22 GB free on the volume containing its profile for the initial model download. Chrome removes the model if free space later falls below 10 GB. For screenshot checks, enable `chrome://flags/#prompt-api-for-gemini-nano-multimodal-input` if Chrome does not already expose image input, then restart. [Chrome's requirements](https://developer.chrome.com/docs/ai/prompt-api) also call for an unmetered initial download.
 3. Open `chrome://extensions`, turn on Developer mode, **Load unpacked**, pick `dist/`.
 4. Click the extension icon to open the side panel. Right-click the panel, select **Inspect**,
    and privately send the generated `App Check debug token` shown in the console to the project
@@ -71,9 +71,7 @@ second-opinion check first hit the project's search-grounding quota, then return
 cloud opinion. The current panel makes that limit explicit: web verification was unavailable and
 the explanation used only the page shown. A separate screenshot check of a synthetic
 parcel-page image returned a suspicious, cloud-labelled verdict ([observation](evaluation/screenshot-observation.json)).
-Grounded source links and the extension's automatic on-device path remain unverified. The hosted web demo independently
-returned live cloud results for a suspicious parcel message and an ordinary delivery update,
-plus the Chrome 157 on-device result linked above.
+Grounded source links remain unverified. The extension's automatic check later returned a suspicious, on-device-labelled result against a synthetic local parcel page in native Chrome's side panel; [the capture](demo/extension-check-on-device.webm) records it. The hosted web demo independently returned live cloud results for a suspicious parcel message and an ordinary delivery update, plus the Chrome 157 on-device results described above.
 
 ## Local archived-page pilot
 
@@ -88,10 +86,10 @@ This includes one scam marked safe and two legitimate pages flagged. Thirty-eigh
 
 A follow-up [200-site review and independent 80-site evaluation](evaluation/real-world/README.md) exposed unsafe green verdicts on shopping pages and intermittent on-device timeouts. The extension now changes a safe verdict to unsure when a page asks for sensitive details or has a redirecting form or link. On the fresh 80-site set, the final local run marked 30 scams suspicious, nine unsure, none safe, and timed out on one; among 40 legitimate sites, one was marked suspicious. The result is a bounded archived-page test, not a live-browsing accuracy estimate.
 
-The [88-second narrated demo](https://scam-shield-landing-phi.vercel.app/#demo-video) has ElevenLabs
-voiceover, captions, and [real installed-extension footage](demo/extension-check-live.webm)
-from a synthetic parcel page. The page and portrait are illustrative. The extension UI was
-recorded in an extension tab and edited beside a page still; the [capture notes](demo/storyboard.md)
+The [70-second narrated demo](https://scam-shield-landing-phi.vercel.app/#demo-video) has ElevenLabs
+voiceover, captions, and [native Chrome side-panel footage](demo/extension-check-on-device.webm)
+of an on-device check against a synthetic parcel page. The page and portrait are illustrative;
+a still of the page is shown beside the recorded side panel. The [capture notes](demo/storyboard.md)
 explain what each shot proves. The [current YouTube upload](https://youtu.be/49NiHLv1WZg) is the
 earlier silent cut.
 

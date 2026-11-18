@@ -1,30 +1,40 @@
 # Scam Shield judge video
 
-The [88-second final cut](scam-shield-judge-final.mp4) has the existing ElevenLabs Faye
-[voiceover](voiceover-script.md), [English subtitles](scam-shield-judge-final.srt), restrained
-motion highlights, and a real recording of the installed extension UI. The fictional parcel
-page and older-adult portrait are labelled illustrations. The hosted on-device result is an
-observed [screenshot](hosted-on-device-proof.png), not video of the extension running locally.
+The [70-second judge cut](scam-shield-judge-final.mp4) has the existing ElevenLabs Faye
+[voice](voiceover-script.md), [English subtitles](scam-shield-judge-final.srt), restrained
+motion highlights, and an actual recording of Chrome's native Scam Shield side panel. The
+fictional parcel page and older-adult portrait are labelled illustrations. The film shows two
+separate observed on-device results: the hosted checker screenshot and the extension video.
 
 **Public status:** [the current YouTube upload](https://youtu.be/49NiHLv1WZg) is the earlier
-silent, captioned 88-second cut. The new narrated final cut is a local file and has not been
-uploaded to YouTube.
+silent, captioned 88-second cut. It has not been replaced with this new on-device film. The
+updated film and WebVTT are live on the [Vercel demo](https://scam-shield-landing-phi.vercel.app/#demo-video).
 
 ## Footage and claims
 
 | Time | What the video shows | Evidence and limit |
 | --- | --- | --- |
-| 0:00–0:32 | An illustrative grandmother scenario, a fictional parcel page, and the hosted checker result. | The hosted result screenshot reports on-device inference in Chrome. It does not establish that the extension's automatic path ran on-device. |
-| 0:32–0:58 | The actual installed extension checks the local parcel fixture and gives a requested second opinion. | The right side is a [13-second recording](extension-check-live.webm) of `sidepanel.html` opened in an **extension tab** while the fixture tab stayed active. The page on the left is a still from that synthetic fixture. This is an edited split view, not a continuous native side-panel-plus-page screen recording. The [observation](extension-check-live.json) records a cloud-labelled first check, a cloud second opinion, zero source links, and the visible web-verification limit. |
-| 0:58–1:28 | A small synthetic scorecard, concrete protective steps, and the public checker and source links. | The 4/4 and 0/4 figures are from one eight-page synthetic run. The separate [archived-page evaluation](../evaluation/real-world/README.md) gives a broader bounded test; neither is a live-browsing accuracy estimate. |
+| 0:00–0:29 | An illustrative grandmother scenario, a fictional parcel page, and the hosted checker result. | The [hosted screenshot](hosted-on-device-proof.png) reports on-device inference in Chrome. It is a separate observed run from the extension capture. |
+| 0:29–0:37 | Private screening is enabled in the installed extension, which flags the fictional parcel page and offers a concrete next step. | The right side is the first 5.6 seconds of an [11-second recording](extension-check-on-device.webm) of Chrome's **native side panel** while the local parcel fixture tab remained active. The page on the left is a still from that fixture. This is an edited split view, not an uninterrupted browser-window screen recording. The [observation](extension-check-on-device.json) records Chrome 157, model availability `available`, site `127.0.0.1`, risk `suspicious`, and the exact source text “This page's content was checked on this computer.” The final cut ends before the requested cloud second-opinion action. |
+| 0:37–1:10 | A small synthetic scorecard, concrete protective steps, and the public checker and source links. | The 4/4 and 0/4 figures are from one eight-page synthetic run. The separate [archived-page evaluation](../evaluation/real-world/README.md) gives a broader bounded test; neither is a live-browsing accuracy estimate. |
 
-No real scam site was opened for this video. The parcel page cannot take payment and uses
-fictional `.invalid` destinations. The portrait is illustrative and is not a photograph of the
-creator's grandmother. The requested cloud check is labelled as cloud in the footage. Web
-search grounding did not return sources; the film does not claim independent verification.
+The native side-panel footage is a sequence of actual CDP screenshots, encoded at 24 fps;
+the page still was composited beside it for legibility. There are no simulated product states.
+No real scam site was opened. The parcel page cannot take payment and uses fictional `.invalid`
+destinations. The portrait is illustrative and is not a photograph of the creator's grandmother.
 
-To reproduce the recording, build the private judge extension, copy an authorized Chromium
-test profile outside the repository, then set `CAPTURE_PROFILE` to that throwaway copy and run
-`xvfb-run -a node demo/capture_extension.mjs`. The script resets only that copy's check count.
-The narrated cut is built with `python3 demo/build_narrated_video.py`. No App Check debug token,
-personal message, or real browsing URL is included in the video or this folder.
+The raw 11-second capture includes a later requested cloud second-opinion attempt that failed
+in this isolated Chrome profile: its App Check debug-token exchange returned HTTP 403 and the
+cloud request returned an invalid-token error. That action and result are outside the final
+video segment. The final film makes no cloud second-opinion result claim.
+
+`scam-shield-narrated.mp4`, `scam-shield-judge-candidate.mp4`, and
+`scam-shield-real-check.mp4` are earlier historical cuts, not the current judge video.
+
+To reproduce the recording, build the private judge extension and use a model-ready Chrome
+test profile on the real Wayland GPU desktop. Launch Chrome normally with remote debugging
+and `--enable-unsafe-extension-debugging`, then set `CAPTURE_CDP_URL` and
+`CAPTURE_EXTENSION_ID` for `node demo/capture_extension.mjs`. The script gates output on the
+installed extension's source label, inspected fixture hostname, and suspicious result. The
+film is rebuilt with `python3 demo/build_narrated_video.py`. No App Check debug token,
+personal message, or real browsing URL is included in the film or this folder.
