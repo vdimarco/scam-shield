@@ -88,14 +88,12 @@ This includes one scam marked safe and two legitimate pages flagged. Thirty-eigh
 
 A follow-up [200-site review and independent 80-site evaluation](evaluation/real-world/README.md) exposed unsafe green verdicts on shopping pages and intermittent on-device timeouts. The extension now changes a safe verdict to unsure when a page asks for sensitive details or has a redirecting form or link. On the fresh 80-site set, the final local run marked 30 scams suspicious, nine unsure, none safe, and timed out on one; among 40 legitimate sites, one was marked suspicious. The result is a bounded archived-page test, not a live-browsing accuracy estimate.
 
-The [38-second walkthrough](demo/scam-shield-real-check.mp4) combines labelled synthetic pages
-and real extension result captures. It is a silent composite of separate checks, not one
-continuous recording. The [public 88-second judge video](https://youtu.be/49NiHLv1WZg) is the
-original silent cut. The [new narrated cut](demo/scam-shield-narrated.mp4) adds ElevenLabs voiceover,
-English [subtitles](demo/scam-shield-narrated.srt), and brief highlights of the evidence and safer
-steps. It labels observed screenshots and the illustrative second-opinion layout. Both cuts are
-composites, not continuous live footage; the [silent source file](demo/scam-shield-judge-candidate.mp4)
-is preserved for review.
+The [88-second narrated demo](https://scam-shield-landing-phi.vercel.app/#demo-video) has ElevenLabs
+voiceover, captions, and [real installed-extension footage](demo/extension-check-live.webm)
+from a synthetic parcel page. The page and portrait are illustrative. The extension UI was
+recorded in an extension tab and edited beside a page still; the [capture notes](demo/storyboard.md)
+explain what each shot proves. The [current YouTube upload](https://youtu.be/49NiHLv1WZg) is the
+earlier silent cut.
 
 ## Not built yet
 

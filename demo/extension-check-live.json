@@ -1,0 +1,24 @@
+{
+  "browser": "155.0.8059.84",
+  "fixture": "Synthetic local parcel-fee.html; no real scam website opened",
+  "capture": "Playwright recording of installed Chrome extension sidepanel.html in an extension tab while the fixture tab remained active; button actions triggered against the real extension DOM",
+  "timings": {
+    "started": 0,
+    "checkClicked": 1.5,
+    "checkResult": 4.03,
+    "secondClicked": 6.55,
+    "secondResult": 8.8,
+    "noteScrolled": 10,
+    "ended": 13
+  },
+  "check": {
+    "headline": "Possible scam. Pause here.",
+    "source": "This page's content was sent to the cloud for this check.",
+    "risk": "suspicious"
+  },
+  "secondOpinion": {
+    "note": "Web verification is unavailable right now. This explanation uses only the page shown. Verify through the official app or a phone number you already trust.",
+    "text": "What this is\nA web page claims you must pay an urgent delivery fee of one dollar and ninety-five cents for a package or it will be returned. It asks for your credit card details. I could not independently verify its claims.\n\nWhy I think so\nThe page uses high-pressure tactics, demanding action within thirty minutes. This is a common warning sign for scams that try to steal credit card information. \n\nWhat to do now\nDo not enter your credit card details or any personal information on this page. Close the browser window immediately and ignore the message.",
+    "links": 0
+  }
+}

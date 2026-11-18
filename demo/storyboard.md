@@ -1,24 +1,30 @@
-# Scam Shield: optional continuous judge recording plan
+# Scam Shield judge video
 
-The [88-second narrated cut](scam-shield-narrated.mp4) uses the [recorded voiceover](voiceover-script.md),
-[English subtitles](scam-shield-narrated.srt), observed screenshots, and a labelled illustration of
-the current second-opinion wording. The [silent candidate](scam-shield-judge-candidate.mp4) is preserved.
-The plan below describes a possible future continuous recording.
+The [88-second final cut](scam-shield-judge-final.mp4) has the existing ElevenLabs Faye
+[voiceover](voiceover-script.md), [English subtitles](scam-shield-judge-final.srt), restrained
+motion highlights, and a real recording of the installed extension UI. The fictional parcel
+page and older-adult portrait are labelled illustrations. The hosted on-device result is an
+observed [screenshot](hosted-on-device-proof.png), not video of the extension running locally.
 
-**Story:** I worry about my grandmother getting a parcel message that asks for a small fee and her card number. The notice, company, and older-adult portrait are illustrative; this is not a real incident or a photograph of my grandmother. Scam Shield gives her a calm reason to pause and a safer way to check.
+**Public status:** [the current YouTube upload](https://youtu.be/49NiHLv1WZg) is the earlier
+silent, captioned 88-second cut. The new narrated final cut is a local file and has not been
+uploaded to YouTube.
 
-| Time | Visual to record | Narration |
+## Footage and claims
+
+| Time | What the video shows | Evidence and limit |
 | --- | --- | --- |
-| 0:00–0:15 | Show the illustrative older-adult portrait, then the visibly labelled [fictional parcel page](../evaluation/fixtures/parcel-fee.html). Zoom on the 30-minute deadline, $1.95 fee, and card field. | “I built Scam Shield thinking about my grandmother. A message like this could make her enter her card details before she has time to check.” |
-| 0:15–0:40 | Show a real check in the [hosted web demo](https://scam-shield-landing-phi.vercel.app/). Keep the result and **Inference source: on this device** label readable. If using the [captured proof](hosted-on-device-proof.png) rather than fresh footage, label it as a screenshot of an observed run. | “Here, Firebase AI Logic checked the fictional message in Chrome’s on-device model. It flagged the urgency and card request, and the checked text stayed in this browser.” |
-| 0:40–1:05 | Show the real extension beside the fictional parcel page. Click **Check this page** and keep the verdict, reason, and **sent to the cloud** label on screen together. Use the [38-second silent composite](scam-shield-real-check.mp4) only as supplemental evidence, not as this live sequence. | “The Chrome extension gives the same calm pause while she browses. On this test computer, the private model was unavailable, so this requested check used Firebase AI Logic in the cloud. The panel says where the check ran.” |
-| 1:05–1:20 | Show the legitimate parcel fixture and its **No obvious scam signs found** result, then a compact scorecard: 4/4 synthetic suspicious pages flagged; 0/4 synthetic legitimate pages falsely flagged. | “We also checked ordinary pages. In one small synthetic run, it flagged four suspicious pages and falsely flagged none of four ordinary pages. That is a test result, not a real-world accuracy claim.” |
-| 1:20–1:35 | Show a simple route diagram with `ONLY_ON_DEVICE` automatic screening, `PREFER_ON_DEVICE` requested checks, and the observed source labels. | “The design keeps routine screening on the device when the model is available, and lets the person request a check when it is not.” |
-| 1:35–1:45 | End on Grandma’s safe next step: close the page, open the official delivery app, or call a saved number. Add a small limitation note. | “She can stop, leave the page, and verify through a contact she already trusts. Grounded web lookup is still unverified: our Google Search request hit the project quota during testing.” |
+| 0:00–0:32 | An illustrative grandmother scenario, a fictional parcel page, and the hosted checker result. | The hosted result screenshot reports on-device inference in Chrome. It does not establish that the extension's automatic path ran on-device. |
+| 0:32–0:58 | The actual installed extension checks the local parcel fixture and gives a requested second opinion. | The right side is a [13-second recording](extension-check-live.webm) of `sidepanel.html` opened in an **extension tab** while the fixture tab stayed active. The page on the left is a still from that synthetic fixture. This is an edited split view, not a continuous native side-panel-plus-page screen recording. The [observation](extension-check-live.json) records a cloud-labelled first check, a cloud second opinion, zero source links, and the visible web-verification limit. |
+| 0:58–1:28 | A small synthetic scorecard, concrete protective steps, and the public checker and source links. | The 4/4 and 0/4 figures are from one eight-page synthetic run. The separate [archived-page evaluation](../evaluation/real-world/README.md) gives a broader bounded test; neither is a live-browsing accuracy estimate. |
 
-## Recording rules
+No real scam site was opened for this video. The parcel page cannot take payment and uses
+fictional `.invalid` destinations. The portrait is illustrative and is not a photograph of the
+creator's grandmother. The requested cloud check is labelled as cloud in the footage. Web
+search grounding did not return sources; the film does not claim independent verification.
 
-- Film the actual product state and source label for each result. The hosted **web demo** has an observed on-device run; do not imply the **extension** was observed running on-device. Label screenshots and composites as such.
-- Keep the synthetic page and illustrative portrait labelled. Do not present either as a real scam or a photograph of the creator’s grandmother.
-- Do not show a successful grounded second opinion unless a fresh run succeeds and displays its real sources. The recorded attempt returned HTTP 429; [the observation](../evaluation/second-opinion-observation.json) documents it.
-- Keep private tokens, personal messages, and browsing history out of frame. Use readable zoom, English narration and captions, and a public YouTube video under three minutes for Devpost.
+To reproduce the recording, build the private judge extension, copy an authorized Chromium
+test profile outside the repository, then set `CAPTURE_PROFILE` to that throwaway copy and run
+`xvfb-run -a node demo/capture_extension.mjs`. The script resets only that copy's check count.
+The narrated cut is built with `python3 demo/build_narrated_video.py`. No App Check debug token,
+personal message, or real browsing URL is included in the video or this folder.

@@ -6,32 +6,42 @@ from tempfile import TemporaryDirectory
 import json
 import subprocess
 
-from build_judge_video import DEEP, GREEN, INK, MUTED, RED, WHITE, base, build_slides, font, lines
+from build_judge_video import GREEN, INK, MUTED, RED, WHITE, base, build_slides, font, image_card, lines
 
 
 DEMO = Path(__file__).resolve().parent
-OUT = DEMO / "scam-shield-narrated.mp4"
+OUT = DEMO / "scam-shield-judge-final.mp4"
 AUDIO = DEMO / "scam-shield-judge-voiceover-48k.m4a"
-SUBTITLES = DEMO / "scam-shield-narrated.srt"
+LIVE = DEMO / "extension-check-live.webm"
+SUBTITLES = DEMO / "scam-shield-judge-final.srt"
 DURATIONS = [9, 11, 13, 13, 14, 11, 11, 9]
 TRANSITION = 0.4
 FPS = 24
 
 
-def quota_slide():
+def live_check_slide():
+    canvas, draw = base(
+        4,
+        "Real extension check · synthetic local page",
+        "Installed extension tab recording + fixture still  •  check ran in the cloud",
+    )
+    draw.text((69, 142), "The warning appears beside the page.", font=font(29, bold=True), fill=INK)
+    image_card(canvas, DEMO / "frames/02-parcel-page.png", (67, 196, 696, 430))
+    return canvas
+
+
+def live_opinion_slide():
     canvas, draw = base(
         5,
-        "Requested second opinion · quota fallback",
-        "Illustrative layout using current UI copy  •  recorded grounded request returned HTTP 429",
+        "Requested second opinion · clear source limits",
+        "Installed extension tab recording + fixture still  •  zero web sources returned",
     )
-    draw.text((75, 165), "A SECOND LOOK. A CLEAR LIMIT.", font=font(18, bold=True), fill=RED)
-    lines(draw, "Web verification is\nunavailable right now.", 73, 216, 1090, 48, INK, bold=True, leading=1.2)
-    draw.rounded_rectangle((76, 369, 1190, 587), radius=22, fill=WHITE, outline="#dacfc1", width=2)
-    draw.rounded_rectangle((100, 395, 320, 440), radius=12, fill="#e9e1d3")
-    draw.text((116, 407), "CLOUD FALLBACK", font=font(18, bold=True), fill=DEEP)
-    draw.text((765, 409), "ILLUSTRATIVE COPY · NO SCREENSHOT", font=font(16, bold=True), fill=MUTED)
-    lines(draw, "This explanation uses only the page shown.", 101, 461, 1020, 29, INK, bold=True)
-    lines(draw, "Verify through the official app or a phone number you already trust.", 102, 524, 1020, 22, MUTED)
+    lines(draw, "A second look.\nA clear limit.", 68, 194, 690, 48, INK, bold=True, leading=1.2)
+    lines(
+        draw,
+        "When web verification was unavailable, Scam Shield said so and pointed her to the official app or a number she already trusts.",
+        70, 371, 674, 25, MUTED,
+    )
     return canvas
 
 
@@ -45,8 +55,6 @@ def highlights(index):
         ]
     if index == 2:
         return [(65, 543, 451, 64, GREEN, 4.0, 9.5)]
-    if index == 3:
-        return [(894, 589, 291, 55, GREEN, 5.5, 10.0)]
     if index == 6:
         return [
             (650, 343, 545, 57, WHITE, 2.2, 4.2),
@@ -87,10 +95,12 @@ def timestamp(seconds):
 
 
 def render():
-    if not AUDIO.is_file():
-        raise FileNotFoundError(AUDIO)
+    for path in (AUDIO, LIVE):
+        if not path.is_file():
+            raise FileNotFoundError(path)
     slides = build_slides()
-    slides[4] = quota_slide()
+    slides[3] = live_check_slide()
+    slides[4] = live_opinion_slide()
     SUBTITLES.write_text(
         "\n\n".join(
             f"{number}\n{timestamp(start)} --> {timestamp(end)}\n{caption}"
@@ -104,7 +114,7 @@ def render():
             path = Path(temporary) / f"slide-{index:02}.png"
             slide.save(path)
             command += ["-framerate", str(FPS), "-loop", "1", "-t", str(duration), "-i", str(path)]
-        command += ["-i", str(AUDIO)]
+        command += ["-i", str(AUDIO), "-i", str(LIVE)]
         filters = []
         for index in range(len(slides)):
             effect = f"[{index}:v]format=yuv420p"
@@ -114,12 +124,22 @@ def render():
                     f"enable='between(t,{start},{end})'"
                 )
             filters.append(f"{effect}[s{index}]")
+        # shortcut: these trims match the recorded run; retime them after a fresh capture.
+        filters += [
+            "[9:v]split=2[raw-check][raw-opinion]",
+            "[raw-check]trim=start=0:end=6.5,setpts=PTS-STARTPTS,scale=480:720,fps=24[check-footage]",
+            "[raw-opinion]trim=start=6.5:end=13,setpts=PTS-STARTPTS,scale=480:720,fps=24[opinion-footage]",
+            "[s3][check-footage]overlay=x=800:y=0:eof_action=repeat[scene3]",
+            "[s4][opinion-footage]overlay=x=800:y=0:eof_action=repeat[scene4]",
+        ]
+        scenes = [f"s{index}" for index in range(len(slides))]
+        scenes[3], scenes[4] = "scene3", "scene4"
         offset = DURATIONS[0] - TRANSITION
-        previous = "s0"
+        previous = scenes[0]
         for index in range(1, len(slides)):
             name = f"v{index}"
             filters.append(
-                f"[{previous}][s{index}]xfade=transition=fade:duration={TRANSITION}:offset={offset:.1f}[{name}]"
+                f"[{previous}][{scenes[index]}]xfade=transition=fade:duration={TRANSITION}:offset={offset:.1f}[{name}]"
             )
             previous = name
             if index < len(slides) - 1:

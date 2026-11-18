@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { accountForPageEvidence } from "./verdict.ts";
+import { accountForPageEvidence, parseVerdict } from "./verdict.ts";
 
 const page = {
   url: "https://example.org/", title: "Example", text: "Hello", truncated: false,
@@ -30,4 +30,19 @@ test("partial page warning takes precedence", () => {
   const verdict = accountForPageEvidence(safe, { ...page, truncated: true, asksForPassword: true });
   assert.equal(verdict.risk, "unsure");
   assert.match(verdict.reason, /Only part/);
+});
+
+// Unconstrained local output must still fail closed.
+test("invalid local JSON never becomes a safe verdict", () => {
+  for (const output of [
+    '{"risk":"suspicious","reason<html>',
+    '```json\n{"risk":"safe","reason":"Fine"}\n```',
+    '{"risk":"safe"}',
+    '{"risk":"safe","reason":42}',
+  ]) {
+    const verdict = parseVerdict(output, "on_device");
+    assert.equal(verdict.risk, "unsure");
+    assert.equal(verdict.ranOnDevice, true);
+  }
+  assert.equal(parseVerdict('{"risk":"safe","reason":"Ordinary news."}', "on_device").risk, "safe");
 });

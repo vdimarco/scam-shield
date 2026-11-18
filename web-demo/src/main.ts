@@ -94,11 +94,17 @@ const HEADLINES: Record<Verdict["risk"], string> = {
   unsure: "Take care here.",
   safe: "No obvious scam signs found.",
 };
+const ACTIONS: Record<Verdict["risk"], string> = {
+  suspicious: "Do not use the link or share details. Check the request through the organization's official app or a number you found independently.",
+  unsure: "Pause before clicking, paying, or sharing details. Confirm the request through an official app or a number you found independently.",
+  safe: "If this asks for money or account details, verify it through an official app or contact you found independently before acting.",
+};
 
 function showVerdict(verdict: Verdict) {
   result.dataset.risk = verdict.risk;
   $("live-verdict").textContent = HEADLINES[verdict.risk];
   $("live-reason").textContent = verdict.reason;
+  $("live-action").textContent = ACTIONS[verdict.risk];
   $("live-source").textContent = verdict.ranOnDevice === true
     ? "Inference source: on this device. The checked text stayed in this browser."
     : verdict.ranOnDevice === false

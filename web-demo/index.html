@@ -14,7 +14,7 @@
       <nav aria-label="Main navigation">
         <a href="#how-it-works">How it works</a>
         <a href="#try-it">Try a check</a>
-        <a href="#promise">The promise</a>
+        <a href="#evidence">Results</a>
       </nav>
     </header>
 
@@ -24,16 +24,29 @@
           <h1 id="hero-title">I want my grandmother to browse without facing scams alone.</h1>
           <p>Scam Shield gives her a calm second look at the page in front of her: a clear explanation of warning signs and a deeper check when she asks.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#how-it-works">
-              See how it works
+            <a class="button button-primary" href="#try-it">
+              Try a real check
               <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" /></svg>
             </a>
-            <a href="https://youtu.be/49NiHLv1WZg" target="_blank" rel="noopener noreferrer">Watch the 88-second demo <span aria-hidden="true">↗</span></a>
+            <a href="#demo-video">Watch the narrated demo <span aria-hidden="true">↓</span></a>
           </div>
         </div>
         <figure class="hero-image">
           <img src="/assets/grandmother-laptop.webp" alt="Illustrative portrait of an older woman using a laptop at a kitchen table" width="1536" height="1024" fetchpriority="high" />
         </figure>
+      </section>
+
+      <section class="video-section" id="demo-video" aria-labelledby="demo-video-title">
+        <div class="video-inner">
+          <p class="example-label">88-second narrated demo</p>
+          <h2 id="demo-video-title">A moment to pause, shown in the product.</h2>
+          <video controls preload="metadata" width="1280" height="720" poster="/assets/grandmother-laptop.webp">
+            <source src="/scam-shield-judge-final.mp4" type="video/mp4" />
+            <track src="/scam-shield-judge-final.vtt" kind="captions" srclang="en" label="English" default />
+            Your browser cannot play this video. <a href="/scam-shield-judge-final.mp4">Download the demo</a>.
+          </video>
+          <p class="video-note">The parcel page and portrait are illustrative. The extension footage is a real check against a synthetic local page; the requested result used cloud fallback. <a href="https://youtu.be/49NiHLv1WZg" target="_blank" rel="noopener noreferrer">View the earlier YouTube cut</a>.</p>
+        </div>
       </section>
 
       <section class="example-section" id="how-it-works" aria-labelledby="example-title">
@@ -78,6 +91,10 @@
               <div class="panel-content">
                 <h3>Stop. This looks like a scam.</h3>
                 <p class="panel-reason">The page asks for a small card payment and pushes you to act before you can verify the delivery.</p>
+                <div class="next-step">
+                  <h4>What to do now</h4>
+                  <p>Pause. Open the delivery company’s official app or type its address yourself before paying or sharing card details.</p>
+                </div>
                 <p class="panel-list-title">What raised concern</p>
                 <ul class="concerns">
                   <li><span aria-hidden="true">01</span><div><strong>Urgency</strong><small>It asks for a quick decision.</small></div></li>
@@ -86,8 +103,8 @@
                 </ul>
                 <button class="button button-primary panel-button" type="button" id="second-opinion-button" aria-controls="sample-opinion" aria-expanded="false">See a second opinion example <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></button>
                 <div id="sample-opinion" class="sample-opinion" hidden>
-                  <h4>What to do now</h4>
-                  <p>Close this page. Open the delivery company’s official app or type its address yourself to check whether a payment is really due.</p>
+                  <h4>A deeper look might say</h4>
+                  <p>A small redelivery fee paired with a request for card details is a reason to verify the parcel through the company’s own app.</p>
                   <small>Sample guidance for illustration; no cloud check ran here.</small>
                 </div>
               </div>
@@ -100,7 +117,7 @@
       <section class="live-section" id="try-it" aria-labelledby="live-title">
         <div class="live-heading">
           <h2 id="live-title">Try a real check.</h2>
-          <p>Choose a fictional message or paste your own. The answer below comes from Firebase AI Logic, and it shows where the check ran.</p>
+          <p>Choose a fictional message, press Check this message, then read the result, what to do next, and where the check ran. You can also paste your own text.</p>
         </div>
         <div class="live-grid">
           <form class="live-form" id="live-form">
@@ -121,11 +138,34 @@
             <div id="live-result" hidden>
               <h3 id="live-verdict"></h3>
               <p id="live-reason"></p>
+              <div class="next-step live-next-step">
+                <h4>What to do now</h4>
+                <p id="live-action"></p>
+              </div>
               <p class="live-source" id="live-source"></p>
               <p class="live-caveat">This is a second look, not a guarantee. Verify important requests through a contact method you found independently.</p>
             </div>
             <p class="repo-link"><a href="https://github.com/vdimarco/scam-shield" target="_blank" rel="noopener noreferrer">Source code and synthetic test cases <span aria-hidden="true">↗</span></a></p>
           </div>
+        </div>
+      </section>
+
+      <section class="evidence-section" id="evidence" aria-labelledby="evidence-title">
+        <div class="evidence-inner">
+          <p class="example-label">Observed test · 17 November 2026</p>
+          <h2 id="evidence-title">We tested the warnings against archived pages.</h2>
+          <p class="evidence-intro">In one fresh run, we tested the extension’s on-device screener on 80 archived page snapshots. The result can be a warning, an unsure answer, or an error; each matters.</p>
+          <div class="evidence-grid">
+            <div class="evidence-card">
+              <h3>40 scam pages</h3>
+              <p><strong>30</strong> warned · <strong>9</strong> unsure · <strong>0</strong> marked safe · <strong>1</strong> timed out</p>
+            </div>
+            <div class="evidence-card">
+              <h3>40 legitimate pages</h3>
+              <p><strong>18</strong> marked safe · <strong>21</strong> unsure · <strong>1</strong> false alarm · <strong>0</strong> errors</p>
+            </div>
+          </div>
+          <p class="evidence-note">All 79 completed checks reported on-device inference; none used the cloud. These archived pages were evaluated from extracted text and page features in a small balanced test, not a live-browsing accuracy estimate. Results can vary between runs. <a href="https://github.com/vdimarco/scam-shield/blob/main/evaluation/real-world/README.md" target="_blank" rel="noopener noreferrer">Read the method and full results <span aria-hidden="true">↗</span></a></p>
         </div>
       </section>
 

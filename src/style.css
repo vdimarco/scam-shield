@@ -39,6 +39,7 @@ a { color: var(--ink); text-underline-offset: 2px; }
 .verdict[data-risk="suspicious"] { border-left-color: var(--danger); }
 .verdict[data-risk="suspicious"] h2 { color: var(--danger); }
 .site { margin: 0; overflow-wrap: anywhere; }
+.next-step { padding: 10px 12px; border-radius: 8px; background: var(--paper); }
 #opinion-text { white-space: pre-wrap; }
 .actions { display: flex; flex-wrap: wrap; gap: 8px; }
 button {

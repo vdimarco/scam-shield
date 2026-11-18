@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { accountForPartialPage, parseVerdict } from "../src/verdict.ts";
+import { accountForPageEvidence, parseVerdict } from "../src/verdict.ts";
 
 test("accepts a complete verdict and preserves its reported inference source", () => {
   assert.deepEqual(parseVerdict(
@@ -30,8 +30,8 @@ test("malformed or incomplete model output never becomes safe", () => {
 
 test("a safe verdict based on partial page text becomes unsure", () => {
   const safe = parseVerdict(JSON.stringify({ risk: "safe", reason: "No warning signs found." }), "in_cloud");
-  const partial = accountForPartialPage(safe, true);
+  const partial = accountForPageEvidence(safe, { truncated: true });
   assert.equal(partial.risk, "unsure");
   assert.match(partial.reason, /only part of this page/i);
-  assert.equal(accountForPartialPage(safe, false), safe);
+  assert.equal(accountForPageEvidence(safe, { truncated: false }), safe);
 });
