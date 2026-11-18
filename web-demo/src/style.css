@@ -161,6 +161,7 @@ h2 { font: 700 clamp(2.9rem, 4vw, 3.9rem)/1.06 Georgia, 'Times New Roman', serif
 .live-form .button:disabled { opacity: .55; cursor: not-allowed; transform: none; }
 .live-answer { min-height: 430px; padding: clamp(24px, 3vw, 42px); border-radius: 16px; background: var(--green-dark); color: #f9f5eb; }
 .live-answer-label { margin: 0 0 28px; color: #cbdccf; font-size: .87rem; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+#live-result { scroll-margin-top: 48px; }
 .live-status { margin: 0; font: 400 clamp(1.25rem, 2vw, 1.7rem)/1.35 Georgia, 'Times New Roman', serif; }
 .live-answer h3 { margin: 24px 0 15px; color: #f8d4ca; font: 700 clamp(2rem, 3vw, 2.8rem)/1.08 Georgia, 'Times New Roman', serif; letter-spacing: -.04em; }
 .live-answer [data-risk="safe"] h3 { color: #d1ead4; }

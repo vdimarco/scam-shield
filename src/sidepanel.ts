@@ -271,7 +271,7 @@ async function start() {
   Object.assign(ledger, stored.ledger ?? {});
   $("ledger-local").textContent = String(ledger.local);
   $("ledger-cloud").textContent = String(ledger.cloud);
-  await loadRemoteConfig();
+  void loadRemoteConfig().then(setMode);
   setMode();
   const setup = $("setup");
   setup.hidden = false;

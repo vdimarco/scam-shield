@@ -8,14 +8,14 @@ import subprocess
 
 from PIL import ImageDraw
 
-from build_judge_video import BG, GREEN, INK, MUTED, RED, WHITE, base, build_slides, font, image_card
+from build_judge_video import BG, GREEN, INK, MUTED, RED, WHITE, build_slides, font
 
 
 DEMO = Path(__file__).resolve().parent
 OUT = DEMO / "scam-shield-judge-final.mp4"
 AUDIO = DEMO / "scam-shield-judge-voiceover-48k.m4a"
-LIVE = DEMO / "extension-check-on-device.webm"
-OBSERVATION = DEMO / "extension-check-on-device.json"
+LIVE = DEMO / "automatic-warning-and-panel-on-device.webm"
+OBSERVATION = DEMO / "automatic-warning-and-panel-on-device.json"
 SUBTITLES = DEMO / "scam-shield-judge-final.srt"
 DURATIONS = [9, 11, 10, 9, 23, 11, 9]
 ORIGINAL_SLIDES = [0, 1, 2, 3, 5, 6, 7]
@@ -91,17 +91,6 @@ def build_audio():
     subprocess.run(command, check=True)
 
 
-def live_check_slide():
-    canvas, draw = base(
-        4,
-        "Actual extension · private screening",
-        "Native Chrome side panel + fictional local page still  •  first check on this device",
-    )
-    draw.text((69, 142), "The warning appears beside the page.", font=font(29, bold=True), fill=INK)
-    image_card(canvas, DEMO / "frames/02-parcel-page.png", (67, 196, 696, 430))
-    return canvas
-
-
 def highlights(original_index):
     # These outlines point at observed text; they do not simulate product UI.
     if original_index == 1:
@@ -131,16 +120,15 @@ def render():
         if not path.is_file():
             raise FileNotFoundError(path)
     observation = json.loads(OBSERVATION.read_text(encoding="utf-8"))
-    check = observation["check"]
-    if check["site"] != "127.0.0.1" or check["risk"] != "suspicious" or \
-            "was checked on this computer." not in check["source"] or \
-            observation["modelAvailability"] != "available" or \
-            "native extension side panel" not in observation["capture"]:
-        raise ValueError(f"Cannot claim a native on-device extension result: {observation}")
-    times = observation["timings"]
-    live_end = min(float(probe(LIVE)["format"]["duration"]), times["secondClicked"] - 0.3)
-    if not (0 < times["checkResult"] < times["sourceScrolled"] + 0.01 < live_end):
-        raise ValueError(f"Unexpected on-device capture timing: {times}")
+    if observation["risk"] != "suspicious" or not observation["warningVisible"] or \
+            observation["source"] != "This page's content was checked on this computer." or \
+            observation["nativePanelWidth"] != 360 or \
+            "Synthetic inert local" not in observation["fixture"] or \
+            "Two synchronized genuine Chrome targets" not in observation["composition"]:
+        raise ValueError(f"Cannot claim a genuine automatic on-device warning: {observation}")
+    live_seconds = float(probe(LIVE)["format"]["duration"])
+    if not 8.4 <= live_seconds <= DURATIONS[3]:
+        raise ValueError(f"Unexpected automatic warning capture duration: {live_seconds}")
 
     build_audio()
     SUBTITLES.write_text(
@@ -152,7 +140,6 @@ def render():
 
     original = build_slides()
     slides = [original[index] for index in ORIGINAL_SLIDES]
-    slides[3] = live_check_slide()
     for index in (1, 2, 3, 4):
         draw = ImageDraw.Draw(slides[index])
         draw.rectangle((1110, 31, 1212, 70), fill=BG)
@@ -166,6 +153,8 @@ def render():
         command += ["-i", str(AUDIO), "-i", str(LIVE)]
         filters = []
         for index, original_index in enumerate(ORIGINAL_SLIDES):
+            if index == 3:
+                continue
             effect = f"[{index}:v]format=yuv420p"
             for x, y, width, height, color, start, end in highlights(original_index):
                 effect += (
@@ -174,9 +163,12 @@ def render():
                 )
             filters.append(f"{effect}[s{index}]")
         filters += [
-            f"[8:v]trim=start=0:end={live_end:.3f},setpts=PTS-STARTPTS,"
-            f"scale=480:720,fps={FPS}[check-footage]",
-            "[s3][check-footage]overlay=x=800:y=0:eof_action=repeat[scene3]",
+            f"[8:v]trim=duration={live_seconds:.3f},setpts=PTS-STARTPTS,scale=1280:720,"
+            f"fps={FPS},tpad=stop_mode=clone:stop_duration={DURATIONS[3] - live_seconds:.3f},"
+            "drawbox=x=0:y=0:w=240:h=36:color=0x19483a@0.94:t=fill,"
+            "drawtext=fontfile=/usr/share/fonts/TTF/DejaVuSans-Bold.ttf:"
+            "text=SYNTHETIC LOCAL TEST:fontcolor=white:fontsize=15:x=10:y=8,"
+            "format=yuv420p[scene3]",
         ]
         scenes = [f"s{index}" for index in range(len(slides))]
         scenes[3] = "scene3"

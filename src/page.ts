@@ -112,9 +112,11 @@ export function renderWarning(expectedUrl: string, reason: string | null): void 
   const dismiss = document.createElement("button");
   dismiss.type = "button";
   dismiss.textContent = "Dismiss warning";
-  dismiss.style.cssText = "padding:8px 12px;border:1px solid #1f2a2e;border-radius:6px;background:#fffdf8;color:#1f2a2e;font:600 14px system-ui,sans-serif;cursor:pointer;";
+  dismiss.style.cssText = "min-height:44px;padding:8px 12px;border:1px solid #1f2a2e;border-radius:6px;background:#fffdf8;color:#1f2a2e;font:600 16px system-ui,sans-serif;cursor:pointer;";
   dismiss.addEventListener("click", () => host.remove());
-  shadow.append(title, detail, step, dismiss);
+  const focusStyle = document.createElement("style");
+  focusStyle.textContent = "button:focus-visible{outline:3px solid #a3271c;outline-offset:3px}";
+  shadow.append(focusStyle, title, detail, step, dismiss);
   // Keep the extension warning outside body.innerText so it cannot contaminate the next scan.
   document.documentElement.append(host);
 }

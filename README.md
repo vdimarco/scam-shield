@@ -92,11 +92,10 @@ This includes one scam marked safe and two legitimate pages flagged. Thirty-eigh
 A follow-up [200-site review and independent 80-site evaluation](evaluation/real-world/README.md) exposed unsafe green verdicts on shopping pages and intermittent on-device timeouts. The extension now changes a safe verdict to unsure when a page asks for sensitive details or has a redirecting form or link. On the fresh 80-site set, the final local run marked 30 scams suspicious, nine unsure, none safe, and timed out on one; among 40 legitimate sites, one was marked suspicious. The result is a bounded archived-page test, not a live-browsing accuracy estimate.
 
 The [80-second narrated demo](https://scam-shield-landing-phi.vercel.app/#demo-video) has ElevenLabs
-voiceover, captions, and [native Chrome side-panel footage](demo/extension-check-on-device.webm)
+voiceover, captions, and [native Chrome warning and side-panel footage](demo/automatic-warning-and-panel-on-device.webm)
 of an on-device check against a synthetic parcel page. The page and portrait are illustrative;
-a still of the page is shown beside the recorded side panel. The [capture notes](demo/storyboard.md)
-explain what each shot proves. The [current YouTube upload](https://youtu.be/49NiHLv1WZg) is the
-earlier silent cut.
+the simultaneous page and side-panel targets are arranged side by side for legibility. The [capture notes](demo/storyboard.md)
+explain what each shot proves. The [same final narrated cut is on YouTube](https://youtu.be/6C-LlPtNjP0).
 
 ## Not built yet
 
