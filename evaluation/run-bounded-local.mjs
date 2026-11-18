@@ -10,6 +10,7 @@ const CDP_URL = "http://127.0.0.1:9234";
 const risks = ["safe", "unsure", "suspicious", "error"];
 const sources = ["on-device", "cloud", "unknown"];
 const errors = [null, "local-model-unavailable", "inference-failed", "nonlocal-source", "deadline-exceeded"];
+const stages = ["navigation", "loaded", "instrumented", "instrumentation-failed", "api-unavailable", "module-import", "request-start", "session-create", "session-ready", "prompt-start", "prompt-ready", "prompt-error", "prompt-uninstrumented", "verdict-ready"];
 
 // Use a fresh tab per case so closing it cancels a stuck Prompt API request.
 async function localPage(context) {
@@ -26,14 +27,62 @@ export async function runCase(context, sample, deadlineMs) {
   const started = performance.now();
   const page = await localPage(context);
   const deadlineError = new Error("Case deadline exceeded");
+  const trace = { lastStage: "navigation", sessionCreateMs: null, promptMs: null };
+  let sessionStarted;
+  let promptStarted;
+  page.on("console", (message) => {
+    const stage = message.text().match(/^ScamShieldDiagnostic:([a-z-]+)$/)?.[1];
+    if (!stages.includes(stage)) return;
+    trace.lastStage = stage;
+    if (stage === "session-create") sessionStarted = performance.now();
+    if (stage === "session-ready" && sessionStarted !== undefined) trace.sessionCreateMs = Math.round(performance.now() - sessionStarted);
+    if (stage === "prompt-start") promptStarted = performance.now();
+    if ((stage === "prompt-ready" || stage === "prompt-error") && promptStarted !== undefined) trace.promptMs = Math.round(performance.now() - promptStarted);
+  });
   let timer;
   let outcome;
   try {
     const operation = (async () => {
       await page.goto(RUNNER_URL, { waitUntil: "domcontentloaded", timeout: 10_000 });
+      trace.lastStage = "loaded";
       return page.evaluate(async (snapshot) => {
+        const emit = (stage) => console.info(`ScamShieldDiagnostic:${stage}`);
+        const provider = globalThis.LanguageModel;
+        if (typeof provider?.create === "function") {
+          const create = provider.create;
+          try {
+            provider.create = async function (...args) {
+              emit("session-create");
+              const session = await create.apply(this, args);
+              emit("session-ready");
+              const prompt = session.prompt;
+              if (typeof prompt === "function") {
+                const wrapped = async function (...promptArgs) {
+                  emit("prompt-start");
+                  try {
+                    const result = await prompt.apply(this, promptArgs);
+                    emit("prompt-ready");
+                    return result;
+                  } catch (error) {
+                    emit("prompt-error");
+                    throw error;
+                  }
+                };
+                try {
+                  session.prompt = wrapped;
+                  if (session.prompt !== wrapped) emit("prompt-uninstrumented");
+                } catch { emit("prompt-uninstrumented"); }
+              }
+              return session;
+            };
+            emit(provider.create === create ? "instrumentation-failed" : "instrumented");
+          } catch { emit("instrumentation-failed"); }
+        } else emit("api-unavailable");
+        emit("module-import");
         const { screenPage } = await import("/src/models.ts");
+        emit("request-start");
         const verdict = await screenPage(snapshot, { requested: false });
+        emit("verdict-ready");
         return { risk: verdict.risk, ranOnDevice: verdict.ranOnDevice };
       }, sample.page);
     })();
@@ -58,7 +107,7 @@ export async function runCase(context, sample, deadlineMs) {
     await page.close({ runBeforeUnload: false });
     if (!page.isClosed()) throw new Error("Case tab did not close");
   }
-  return outcome;
+  return { ...outcome, ...trace };
 }
 
 function resumeReport(saved, expected, samples) {
@@ -74,13 +123,16 @@ function resumeReport(saved, expected, samples) {
         raw.category !== sample.category || !risks.includes(raw.observedRisk) || !sources.includes(raw.inferenceSource) ||
         !errors.includes(raw.error) || (raw.elapsedMs !== null && (!Number.isInteger(raw.elapsedMs) || raw.elapsedMs < 0)) ||
         (raw.errorType !== undefined && (typeof raw.errorType !== "string" ||
-          !/^[A-Za-z][A-Za-z0-9]{0,39}(\/[A-Za-z0-9._/-]{1,60})?$/.test(raw.errorType)))) {
+          !/^[A-Za-z][A-Za-z0-9]{0,39}(\/[A-Za-z0-9._/-]{1,60})?$/.test(raw.errorType))) ||
+        (raw.lastStage !== undefined && !stages.includes(raw.lastStage)) ||
+        [raw.sessionCreateMs, raw.promptMs].some((value) => value !== undefined && value !== null && (!Number.isInteger(value) || value < 0))) {
       throw new Error(`Existing report has invalid case ${index + 1}.`);
     }
     return {
       id: sample.id, label: sample.label, expectedRisk: sample.expectedRisk, category: sample.category,
       observedRisk: raw.observedRisk, inferenceSource: raw.inferenceSource, error: raw.error,
       ...(raw.errorType === undefined ? {} : { errorType: raw.errorType }), elapsedMs: raw.elapsedMs,
+      ...(raw.lastStage === undefined ? {} : { lastStage: raw.lastStage, sessionCreateMs: raw.sessionCreateMs ?? null, promptMs: raw.promptMs ?? null }),
     };
   });
   return { ...expected, runAt: saved.runAt, cases, summary: summarize(cases) };
