@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { parseDataset } from "./local-runner-logic.ts";
-import { runCase } from "./run-bounded-local.mjs";
+import { ensureLocalModel, runCase } from "./run-bounded-local.mjs";
 
 test("a timed-out case closes its tab and exports only metadata", async () => {
   let closed = false;
@@ -56,4 +56,16 @@ test("timeout markers distinguish session creation from prompt inference", async
     assert.equal(outcome.lastStage, expected);
     assert.doesNotMatch(JSON.stringify(outcome), /private/i);
   }
+});
+
+test("a stalled local-model availability preflight stops and closes its tab", async () => {
+  let closed = false;
+  const page = {
+    route: async () => {},
+    goto: async () => {},
+    evaluate: () => new Promise(() => {}),
+    close: async () => { closed = true; },
+  };
+  await assert.rejects(ensureLocalModel({ newPage: async () => page }, 10), /availability check timed out/);
+  assert.equal(closed, true);
 });

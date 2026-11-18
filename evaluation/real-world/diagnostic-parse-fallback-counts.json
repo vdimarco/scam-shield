@@ -1,0 +1,29 @@
+{
+  "mode": "ONLY_ON_DEVICE",
+  "chromeVersion": "157.0.8103.78",
+  "runnerBaseCommit": "7d668b97bdc88a5bad8a20406c158c02f362cc1e",
+  "unconstrainedModelSourceSha256": "6c485432f2d846648624df1958d12322c89019a6edcf5ca1c4622ce828d4d7dd",
+  "method": "Separate replay through screenPage; parse fallback counted when the returned reason exactly matched parseVerdict's generic invalid-output reason. Case tabs blocked non-loopback requests. These are aggregate counts from the replay, not the earlier tabled passes.",
+  "sets": [
+    {
+      "datasetSha256": "9f68935832e90a66ff84cc98784918ad3bdf40e7efebf1fa8a5644c7a6583cef",
+      "cases": 20,
+      "onDevice": 20,
+      "parseFallback": 14,
+      "otherUnsure": 4,
+      "suspicious": 2,
+      "safe": 0,
+      "errors": 0
+    },
+    {
+      "datasetSha256": "f4e539724b5a98172569bffbe1ada4f3b15049efe0fda5f4a1b5b09b7378e737",
+      "cases": 8,
+      "onDevice": 8,
+      "parseFallback": 8,
+      "otherUnsure": 0,
+      "suspicious": 0,
+      "safe": 0,
+      "errors": 0
+    }
+  ]
+}

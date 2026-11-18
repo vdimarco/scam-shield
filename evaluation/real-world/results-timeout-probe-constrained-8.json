@@ -1,0 +1,141 @@
+{
+  "mode": "ONLY_ON_DEVICE",
+  "datasetSha256": "f4e539724b5a98172569bffbe1ada4f3b15049efe0fda5f4a1b5b09b7378e737",
+  "deadlineMs": 60000,
+  "chromeVersion": "157.0.8103.78",
+  "runAt": "2026-11-18T00:40:03.860Z",
+  "cases": [
+    {
+      "id": "scam/investment/cbac015af91a9ef1d3ea6c8a2f4734e62c580c5c/repeat1",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 4343,
+      "lastStage": "verdict-ready",
+      "sessionCreateMs": 0,
+      "promptMs": 4272
+    },
+    {
+      "id": "scam/investment/cbac015af91a9ef1d3ea6c8a2f4734e62c580c5c/repeat2",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 4338,
+      "lastStage": "verdict-ready",
+      "sessionCreateMs": 1,
+      "promptMs": 4269
+    },
+    {
+      "id": "scam/investment/cbac015af91a9ef1d3ea6c8a2f4734e62c580c5c/repeat3",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 4135,
+      "lastStage": "verdict-ready",
+      "sessionCreateMs": 1,
+      "promptMs": 4075
+    },
+    {
+      "id": "scam/investment/cbac015af91a9ef1d3ea6c8a2f4734e62c580c5c/repeat4",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3677,
+      "lastStage": "verdict-ready",
+      "sessionCreateMs": 2,
+      "promptMs": 3609
+    },
+    {
+      "id": "scam/investment/cbac015af91a9ef1d3ea6c8a2f4734e62c580c5c/repeat5",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3916,
+      "lastStage": "verdict-ready",
+      "sessionCreateMs": 1,
+      "promptMs": 3846
+    },
+    {
+      "id": "scam/investment/cbac015af91a9ef1d3ea6c8a2f4734e62c580c5c/repeat6",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 5169,
+      "lastStage": "verdict-ready",
+      "sessionCreateMs": 1,
+      "promptMs": 5054
+    },
+    {
+      "id": "scam/investment/cbac015af91a9ef1d3ea6c8a2f4734e62c580c5c/repeat7",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3877,
+      "lastStage": "verdict-ready",
+      "sessionCreateMs": 1,
+      "promptMs": 3813
+    },
+    {
+      "id": "scam/investment/cbac015af91a9ef1d3ea6c8a2f4734e62c580c5c/repeat8",
+      "label": "scam",
+      "expectedRisk": "suspicious",
+      "category": "investment",
+      "observedRisk": "suspicious",
+      "inferenceSource": "on-device",
+      "error": null,
+      "elapsedMs": 3114,
+      "lastStage": "verdict-ready",
+      "sessionCreateMs": 0,
+      "promptMs": 3043
+    }
+  ],
+  "summary": {
+    "byLabel": {
+      "phish": {
+        "suspicious": 0,
+        "unsure": 0,
+        "safe": 0,
+        "error": 0
+      },
+      "scam": {
+        "suspicious": 8,
+        "unsure": 0,
+        "safe": 0,
+        "error": 0
+      },
+      "benign": {
+        "suspicious": 0,
+        "unsure": 0,
+        "safe": 0,
+        "error": 0
+      }
+    },
+    "sources": {
+      "on-device": 8,
+      "cloud": 0,
+      "unknown": 0
+    },
+    "localSuccesses": 8
+  }
+}

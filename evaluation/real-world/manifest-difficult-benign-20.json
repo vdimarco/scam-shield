@@ -1,0 +1,207 @@
+{
+  "source": "ScamFerret/artifact evaluation split",
+  "commit": "8cf8dc631edafe584141e2f95f0c0f51855fb7bc",
+  "selection": "Per category, take the first 20 eligible, nonempty, distinct legitimate archived pages after prior hash rank 40; rank by 4 points for password/card input, 3 for external form/mismatched link, up to 5 distinct risk/finance cue words, 1 for truncated text; choose top 10, ties by earlier hash rank. No model verdicts used.",
+  "groups": [
+    {
+      "category": "cryptocurrency",
+      "eligible": 194,
+      "candidate_ranks": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "selected": [
+        {
+          "id": "benign/cryptocurrency/815fb56a1cddecf0f3eaf6a2eae4d63598f8270f",
+          "blob_sha": "815fb56a1cddecf0f3eaf6a2eae4d63598f8270f",
+          "hash_rank": 54,
+          "cue_score": 8,
+          "cue_terms": 9
+        },
+        {
+          "id": "benign/cryptocurrency/28831909ba8686b83519cd226a8e72ea18d198b2",
+          "blob_sha": "28831909ba8686b83519cd226a8e72ea18d198b2",
+          "hash_rank": 51,
+          "cue_score": 7,
+          "cue_terms": 3
+        },
+        {
+          "id": "benign/cryptocurrency/b225a16d30009932cb2c0c58503cc3843d197419",
+          "blob_sha": "b225a16d30009932cb2c0c58503cc3843d197419",
+          "hash_rank": 53,
+          "cue_score": 7,
+          "cue_terms": 4
+        },
+        {
+          "id": "benign/cryptocurrency/c245e03ecf2ba7f38890138ffb77ac5db3a34239",
+          "blob_sha": "c245e03ecf2ba7f38890138ffb77ac5db3a34239",
+          "hash_rank": 50,
+          "cue_score": 6,
+          "cue_terms": 9
+        },
+        {
+          "id": "benign/cryptocurrency/1cb478d9cbffc91dc52302bec80cc46b7fc8c884",
+          "blob_sha": "1cb478d9cbffc91dc52302bec80cc46b7fc8c884",
+          "hash_rank": 44,
+          "cue_score": 5,
+          "cue_terms": 0
+        },
+        {
+          "id": "benign/cryptocurrency/e86cdaaed2d01fe122b9b4c7ae9f3bc02d2a8548",
+          "blob_sha": "e86cdaaed2d01fe122b9b4c7ae9f3bc02d2a8548",
+          "hash_rank": 48,
+          "cue_score": 5,
+          "cue_terms": 7
+        },
+        {
+          "id": "benign/cryptocurrency/0dc835d63436a4ed5b4a107ebc0034443de371d9",
+          "blob_sha": "0dc835d63436a4ed5b4a107ebc0034443de371d9",
+          "hash_rank": 57,
+          "cue_score": 5,
+          "cue_terms": 5
+        },
+        {
+          "id": "benign/cryptocurrency/756c96d1c5c3e21ecba0583d5ecc5f4c96528252",
+          "blob_sha": "756c96d1c5c3e21ecba0583d5ecc5f4c96528252",
+          "hash_rank": 58,
+          "cue_score": 5,
+          "cue_terms": 7
+        },
+        {
+          "id": "benign/cryptocurrency/54cd6a1da7b01aba6c58733a90c9b73132ce6454",
+          "blob_sha": "54cd6a1da7b01aba6c58733a90c9b73132ce6454",
+          "hash_rank": 60,
+          "cue_score": 5,
+          "cue_terms": 1
+        },
+        {
+          "id": "benign/cryptocurrency/9194885282f507eceb515acb0682097dd82feefa",
+          "blob_sha": "9194885282f507eceb515acb0682097dd82feefa",
+          "hash_rank": 41,
+          "cue_score": 4,
+          "cue_terms": 4
+        }
+      ]
+    },
+    {
+      "category": "investment",
+      "eligible": 200,
+      "candidate_ranks": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61
+      ],
+      "selected": [
+        {
+          "id": "benign/investment/b98988abc33d6cec5f88ae8e557fa26f08c1351e",
+          "blob_sha": "b98988abc33d6cec5f88ae8e557fa26f08c1351e",
+          "hash_rank": 57,
+          "cue_score": 9,
+          "cue_terms": 2
+        },
+        {
+          "id": "benign/investment/4a7a75aa30cb7d59bad80f6c8ff2065af6890093",
+          "blob_sha": "4a7a75aa30cb7d59bad80f6c8ff2065af6890093",
+          "hash_rank": 44,
+          "cue_score": 8,
+          "cue_terms": 4
+        },
+        {
+          "id": "benign/investment/a85c019e89ce0dd62414cd3ab1f1cf49070188bb",
+          "blob_sha": "a85c019e89ce0dd62414cd3ab1f1cf49070188bb",
+          "hash_rank": 61,
+          "cue_score": 8,
+          "cue_terms": 5
+        },
+        {
+          "id": "benign/investment/2ffaf780b7a9b673ec977fbc50b96c3f5dcb932e",
+          "blob_sha": "2ffaf780b7a9b673ec977fbc50b96c3f5dcb932e",
+          "hash_rank": 52,
+          "cue_score": 7,
+          "cue_terms": 3
+        },
+        {
+          "id": "benign/investment/926f241c0ecebbeb65e28ae582331e2b02da908e",
+          "blob_sha": "926f241c0ecebbeb65e28ae582331e2b02da908e",
+          "hash_rank": 58,
+          "cue_score": 7,
+          "cue_terms": 4
+        },
+        {
+          "id": "benign/investment/032bc871bd358e9e2e13eea88d0440a126a55c04",
+          "blob_sha": "032bc871bd358e9e2e13eea88d0440a126a55c04",
+          "hash_rank": 48,
+          "cue_score": 6,
+          "cue_terms": 6
+        },
+        {
+          "id": "benign/investment/f6f2f4b77e9b4eaf2474c1ddf9a4cc196e5c469f",
+          "blob_sha": "f6f2f4b77e9b4eaf2474c1ddf9a4cc196e5c469f",
+          "hash_rank": 46,
+          "cue_score": 5,
+          "cue_terms": 9
+        },
+        {
+          "id": "benign/investment/e68b8d8887c31ef01b8640c5b782938a62182b3d",
+          "blob_sha": "e68b8d8887c31ef01b8640c5b782938a62182b3d",
+          "hash_rank": 43,
+          "cue_score": 4,
+          "cue_terms": 4
+        },
+        {
+          "id": "benign/investment/a21c0f8b88e733edf1e8889f9bdd10c756224e98",
+          "blob_sha": "a21c0f8b88e733edf1e8889f9bdd10c756224e98",
+          "hash_rank": 51,
+          "cue_score": 4,
+          "cue_terms": 3
+        },
+        {
+          "id": "benign/investment/fb61bee2645b10ee3ea21dc9c1a0f8ca7d143b75",
+          "blob_sha": "fb61bee2645b10ee3ea21dc9c1a0f8ca7d143b75",
+          "hash_rank": 54,
+          "cue_score": 4,
+          "cue_terms": 0
+        }
+      ]
+    }
+  ],
+  "cases": 20,
+  "unique_urls": 20,
+  "unique_content_patterns": 20,
+  "snapshot_sha256": "9f68935832e90a66ff84cc98784918ad3bdf40e7efebf1fa8a5644c7a6583cef"
+}

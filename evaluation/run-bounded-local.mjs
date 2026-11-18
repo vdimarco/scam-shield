@@ -144,14 +144,18 @@ async function checkpoint(path, report) {
   await rename(`${path}.tmp`, path);
 }
 
-async function ensureLocalModel(context) {
+export async function ensureLocalModel(context, deadlineMs = 15_000) {
   const page = await localPage(context);
+  let timer;
   try {
     await page.goto(RUNNER_URL, { waitUntil: "domcontentloaded", timeout: 10_000 });
-    const availability = await page.evaluate(async () =>
-      globalThis.LanguageModel?.availability ? globalThis.LanguageModel.availability() : "unavailable");
+    const availability = await Promise.race([
+      page.evaluate(async () => globalThis.LanguageModel?.availability ? globalThis.LanguageModel.availability() : "unavailable"),
+      new Promise((_, reject) => { timer = setTimeout(() => reject(new Error("Local model availability check timed out")), deadlineMs); }),
+    ]);
     if (availability !== "available") throw new Error("Local Chrome model is unavailable");
   } finally {
+    clearTimeout(timer);
     await page.close({ runBeforeUnload: false });
   }
 }
