@@ -167,6 +167,7 @@ function showVerdict(verdict: Verdict) {
       : "Inference source: the service did not report where this check ran.";
   status.textContent = "Check complete.";
   result.hidden = false;
+  result.scrollIntoView({ block: "start" });
 }
 
 $<HTMLFormElement>("live-form").addEventListener("submit", async (event) => {

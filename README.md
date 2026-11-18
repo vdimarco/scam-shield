@@ -2,6 +2,9 @@
 
 A Chrome extension that screens the active page for scams while its side panel is open.
 Automatic screening runs on the computer; cloud checks require a button tap.
+When a private automatic check flags a page as suspicious, a dismissible warning appears
+on that page and the extension icon shows a red alert badge. The warning is advisory;
+screening and alerts require the side panel to stay open.
 
 Built for #BuildHybridAI 2026 with the Firebase AI Logic hybrid inference SDK.
 
@@ -47,7 +50,9 @@ different App Check token on each install, so there is no shared token in source
    owner. The owner registers it in the demo Firebase project under **Security > App Check >
    Apps > Manage debug tokens**. Reload the extension after the owner confirms registration.
 5. Click **Turn on private screening** (downloads the local model once), then try the labelled
-   synthetic examples linked from the landing page. Manual cloud checks require step 4.
+   synthetic examples linked from the landing page. The panel remembers this choice and resumes
+   private screening on reopen when Chrome reports the model is available. Manual cloud checks
+   require step 4.
 
 `npm run dev` rebuilds on change; reload the extension to pick it up.
 
@@ -86,7 +91,7 @@ This includes one scam marked safe and two legitimate pages flagged. Thirty-eigh
 
 A follow-up [200-site review and independent 80-site evaluation](evaluation/real-world/README.md) exposed unsafe green verdicts on shopping pages and intermittent on-device timeouts. The extension now changes a safe verdict to unsure when a page asks for sensitive details or has a redirecting form or link. On the fresh 80-site set, the final local run marked 30 scams suspicious, nine unsure, none safe, and timed out on one; among 40 legitimate sites, one was marked suspicious. The result is a bounded archived-page test, not a live-browsing accuracy estimate.
 
-The [70-second narrated demo](https://scam-shield-landing-phi.vercel.app/#demo-video) has ElevenLabs
+The [80-second narrated demo](https://scam-shield-landing-phi.vercel.app/#demo-video) has ElevenLabs
 voiceover, captions, and [native Chrome side-panel footage](demo/extension-check-on-device.webm)
 of an on-device check against a synthetic parcel page. The page and portrait are illustrative;
 a still of the page is shown beside the recorded side panel. The [capture notes](demo/storyboard.md)

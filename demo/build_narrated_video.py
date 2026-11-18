@@ -17,7 +17,7 @@ AUDIO = DEMO / "scam-shield-judge-voiceover-48k.m4a"
 LIVE = DEMO / "extension-check-on-device.webm"
 OBSERVATION = DEMO / "extension-check-on-device.json"
 SUBTITLES = DEMO / "scam-shield-judge-final.srt"
-DURATIONS = [9, 11, 10, 9, 13, 11, 9]
+DURATIONS = [9, 11, 10, 9, 23, 11, 9]
 ORIGINAL_SLIDES = [0, 1, 2, 3, 5, 6, 7]
 TRANSITION = 0.4
 FPS = 24
@@ -33,12 +33,14 @@ CAPTIONS = [
     (23.55, 27.90, "Chrome ran the check on this device;\nthe text stayed in the browser."),
     (32.10, 34.15, "The extension warns beside the page."),
     (34.80, 36.38, "She stays in control."),
-    (37.80, 45.20, "In one small synthetic run, four of four suspicious pages\nwere flagged, and none of four ordinary pages falsely flagged."),
-    (45.20, 49.00, "Real-world accuracy is untested."),
-    (50.30, 52.95, "Close the page. Open the official delivery app."),
-    (52.95, 56.61, "Or call a number she already trusts."),
-    (61.00, 63.60, "Try the live checker and inspect the source."),
-    (63.60, 67.96, "Give someone we love a calm moment\nbefore the next click."),
+    (37.80, 44.50, "On eighty fresh archived pages, Scam Shield warned\non thirty of forty scams."),
+    (44.50, 50.00, "Nine were unsure, one timed out,\nand none were called safe."),
+    (50.80, 54.70, "Of forty legitimate pages, one was falsely flagged."),
+    (55.40, 58.20, "These results do not measure live browsing."),
+    (60.30, 62.95, "Close the page. Open the official delivery app."),
+    (62.95, 66.61, "Or call a number she already trusts."),
+    (71.00, 73.60, "Try the live checker and inspect the source."),
+    (73.60, 77.96, "Give someone we love a calm moment\nbefore the next click."),
 ]
 
 
@@ -58,17 +60,16 @@ def timestamp(seconds):
 
 
 def build_audio():
-    # Keep complete, truthful sentences from the original ElevenLabs Faye
-    # performance. The old cloud-fallback sentence is excluded from this stem.
+    # Keep the original Faye performance outside the updated evidence scene.
     pieces = [
         ("voiceover-01.mp3", 0, 6.40, 0.80),
         ("voiceover-02.mp3", 0, 9.12, 8.80),
         ("voiceover-03.mp3", 0, 8.40, 19.50),
         ("voiceover-04.mp3", 0, 2.20, 32.10),
         ("voiceover-07.mp3", 0, 1.75, 34.80),
-        ("voiceover-06.mp3", 0, 11.20, 37.80),
-        ("voiceover-07.mp3", 1.85, 8.16, 50.30),
-        ("voiceover-08.mp3", 0, 6.96, 61.00),
+        ("voiceover-80-archived.mp3", 0, 20.32, 37.80),
+        ("voiceover-07.mp3", 1.85, 8.16, 60.30),
+        ("voiceover-08.mp3", 0, 6.96, 71.00),
     ]
     command = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y"]
     for name, *_ in pieces:
@@ -121,6 +122,11 @@ def highlights(original_index):
 
 
 def render():
+    summary = json.loads((DEMO.parent / "evaluation/real-world/results-fresh-80-final.json").read_text())["summary"]
+    if summary["byLabel"]["scam"] != {"suspicious": 30, "unsure": 9, "safe": 0, "error": 1} or \
+            summary["byLabel"]["benign"] != {"suspicious": 1, "unsure": 21, "safe": 18, "error": 0} or \
+            summary["sources"]["on-device"] != 79:
+        raise ValueError("Video scorecard differs from the recorded fresh 80-page run")
     for path in (LIVE, OBSERVATION):
         if not path.is_file():
             raise FileNotFoundError(path)

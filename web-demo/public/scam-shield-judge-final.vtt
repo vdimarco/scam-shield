@@ -1,48 +1,55 @@
 WEBVTT
 
-00:00:00.800 --> 00:00:03.350
+00:00.800 --> 00:03.350
 I built Scam Shield thinking about my grandmother.
 
-00:00:03.350 --> 00:00:07.200
+00:03.350 --> 00:07.200
 A rushed parcel notice could catch her off guard.
 
-00:00:08.800 --> 00:00:14.850
+00:08.800 --> 00:14.850
 This fictional page demands a tiny fee, card details,
 and a decision in thirty minutes.
 
-00:00:14.850 --> 00:00:17.920
+00:14.850 --> 00:17.920
 The pressure is the clue.
 
-00:00:19.500 --> 00:00:23.550
+00:19.500 --> 00:23.550
 In the live checker, Firebase AI Logic
 flagged that pressure.
 
-00:00:23.550 --> 00:00:27.900
+00:23.550 --> 00:27.900
 Chrome ran the check on this device;
 the text stayed in the browser.
 
-00:00:32.100 --> 00:00:34.150
+00:32.100 --> 00:34.150
 The extension warns beside the page.
 
-00:00:34.800 --> 00:00:36.380
+00:34.800 --> 00:36.380
 She stays in control.
 
-00:00:37.800 --> 00:00:45.200
-In one small synthetic run, four of four suspicious pages
-were flagged, and none of four ordinary pages falsely flagged.
+00:37.800 --> 00:44.500
+On eighty fresh archived pages, Scam Shield warned
+on thirty of forty scams.
 
-00:00:45.200 --> 00:00:49.000
-Real-world accuracy is untested.
+00:44.500 --> 00:50.000
+Nine were unsure, one timed out,
+and none were called safe.
 
-00:00:50.300 --> 00:00:52.950
+00:50.800 --> 00:54.700
+Of forty legitimate pages, one was falsely flagged.
+
+00:55.400 --> 00:58.200
+These results do not measure live browsing.
+
+01:00.300 --> 01:02.950
 Close the page. Open the official delivery app.
 
-00:00:52.950 --> 00:00:56.610
+01:02.950 --> 01:06.610
 Or call a number she already trusts.
 
-00:01:01.000 --> 00:01:03.600
+01:11.000 --> 01:13.600
 Try the live checker and inspect the source.
 
-00:01:03.600 --> 00:01:07.960
+01:13.600 --> 01:17.960
 Give someone we love a calm moment
 before the next click.

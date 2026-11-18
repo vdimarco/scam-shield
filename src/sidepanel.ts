@@ -1,8 +1,10 @@
 import { loadRemoteConfig, settings } from "./firebase";
 import { DeadlineExceededError, withDeadline } from "./deadline";
+import { downloadedTextModel } from "./local-model";
 import { hasPromptApi, prepareLocalModel, screenPage, screenScreenshot, secondOpinion, type Verdict } from "./models";
 import { opinionSourceNote } from "./opinion";
-import { snapshotActiveTab, type PageSnapshot } from "./page";
+import { setTabWarning, snapshotActiveTab, type ActivePageSnapshot, type PageSnapshot } from "./page";
+import { validScreenshot } from "./screenshot";
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 
@@ -29,9 +31,11 @@ async function bumpLedger(ranOnDevice: boolean | null) {
 }
 
 function setMode() {
-  $("mode").textContent = localReady
+  $("mode").textContent = localReady && settings.autoScreen()
     ? "Automatic checks run on this computer. A manual check may use the cloud; each result shows where it ran."
-    : "Automatic screening is off. A manual check may send page content to the cloud.";
+    : localReady
+      ? "The private model is ready, but automatic screening is off for now. A manual check may use the cloud."
+      : "Automatic screening is off. A manual check may send page content to the cloud.";
 }
 
 function showStatus(headline: string, reason = "") {
@@ -66,7 +70,7 @@ function showVerdict(page: PageSnapshot | null, verdict: Verdict) {
   $("opinion").hidden = true;
 }
 
-async function check(requested: boolean, knownPage?: PageSnapshot) {
+async function check(requested: boolean, knownPage?: ActivePageSnapshot) {
   if (!requested && (!localReady || !settings.autoScreen())) return;
   if (requested) clearTimeout(timer);
   const request = ++generation;
@@ -96,6 +100,10 @@ async function check(requested: boolean, knownPage?: PageSnapshot) {
       return;
     }
     showVerdict(page, verdict);
+    if (!requested && verdict.ranOnDevice === true) {
+      void setTabWarning(page.tabId, page.url, verdict.risk === "suspicious" ? verdict.reason : null)
+        .catch((err) => console.warn("Scam Shield: could not show page warning", err));
+    }
   } catch (err) {
     if (request !== generation) return;
     console.error("Scam Shield: check failed", err);
@@ -111,11 +119,13 @@ $("enable").addEventListener("click", async () => {
   bar.hidden = false;
   enable.disabled = true;
   try {
-    await withDeadline(prepareLocalModel((fraction) => (bar.value = fraction)), 180_000);
+    await withDeadline(prepareLocalModel((fraction) => (bar.value = fraction)), 1_200_000);
     localReady = true;
     $("setup").hidden = true;
     setMode();
     void check(false);
+    void chrome.storage.local.set({ localScreeningEnabled: true })
+      .catch((err) => console.warn("Scam Shield: could not remember private screening", err));
   } catch (err) {
     console.error("Scam Shield: local model unavailable", err);
     $("setup-text").textContent = err instanceof DeadlineExceededError
@@ -197,6 +207,11 @@ $<HTMLInputElement>("shot").addEventListener("change", async (event) => {
   clearTimeout(timer);
   const request = ++generation;
   observedPage = null;
+  if (!validScreenshot(file)) {
+    showStatus("I couldn't check that screenshot.", "Choose a PNG or JPEG smaller than 8 MB.");
+    input.value = "";
+    return;
+  }
   showStatus("Checking the screenshot…");
   $("site").textContent = "Screenshot";
   try {
@@ -252,7 +267,7 @@ window.setInterval(async () => {
 }, 3000);
 
 async function start() {
-  const stored = await chrome.storage.local.get("ledger");
+  const stored = await chrome.storage.local.get(["ledger", "localScreeningEnabled"]);
   Object.assign(ledger, stored.ledger ?? {});
   $("ledger-local").textContent = String(ledger.local);
   $("ledger-cloud").textContent = String(ledger.cloud);
@@ -264,6 +279,25 @@ async function start() {
     $("setup-text").textContent =
       "This browser can't run the private checking model. You can still check any page with the button below.";
     $("enable").hidden = true;
+  } else if (stored.localScreeningEnabled === true) {
+    const enable = $<HTMLButtonElement>("enable");
+    const setupText = $("setup-text");
+    const idleText = setupText.textContent;
+    enable.disabled = true;
+    setupText.textContent = "Checking the saved private model…";
+    try {
+      if (await withDeadline(downloadedTextModel(), 15_000)) {
+        localReady = true;
+        setup.hidden = true;
+        setMode();
+        void check(false);
+      }
+    } catch (err) {
+      console.warn("Scam Shield: could not restore private screening", err);
+    } finally {
+      enable.disabled = false;
+      setupText.textContent = idleText;
+    }
   }
 }
 

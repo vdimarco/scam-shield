@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Northstar Parcel — Delivery action required</title><link rel="stylesheet" href="style.css"></head>
+<body><main>
+  <p class="brand">NORTHSTAR PARCEL</p>
+  <h1>We could not deliver your parcel</h1>
+  <p class="notice">Act within 30 minutes or your parcel will be returned to the sender.</p>
+  <p>Pay a $1.95 redelivery fee to keep your package. Your card details are required now.</p>
+  <p>Tracking reference: NP-2048-TEST</p>
+  <p>Continue at <a href="https://parcel-retry.invalid/verify">northstar-parcel.invalid/verify</a>.</p>
+  <form action="https://parcel-retry.invalid/collect" method="post">
+    <label for="card">Card number</label><input id="card" name="cc-number" autocomplete="cc-number" disabled>
+    <button type="button">Pay redelivery fee</button>
+  </form>
+</main></body></html>

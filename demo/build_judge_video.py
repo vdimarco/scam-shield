@@ -79,7 +79,7 @@ def base(number, label, footer):
 
 
 def build_slides():
-    hero = ROOT / "web-demo/public/assets/grandmother-laptop.webp"
+    hero = ROOT / "web-demo/public/assets/grandmother-laptop-v2.webp"
     parcel = DEMO / "frames/02-parcel-page.png"
     parcel_result = DEMO / "frames/02-parcel-result.png"
     hosted = DEMO / "hosted-on-device-proof.png"
@@ -140,15 +140,19 @@ def build_slides():
     lines(draw, "NO WEB SOURCES RETURNED — VERIFY DIRECTLY", 627, 552, 550, 18, INK, bold=True)
     slides.append(canvas)
 
-    # 6: bounded evidence, with denominator and limit visible.
-    canvas, draw = base(6, "Small synthetic evaluation", "Eight fictional pages  •  one recorded run  •  not a real-world accuracy estimate")
-    lines(draw, "We checked both sides.", 72, 166, 1060, 46, INK, bold=True)
-    draw.rounded_rectangle((76, 287, 582, 550), radius=22, fill="#f0ded8")
-    draw.rounded_rectangle((622, 287, 1128, 550), radius=22, fill="#dceade")
-    draw.text((118, 333), "4 / 4", font=font(77, bold=True), fill=RED)
-    lines(draw, "suspicious pages\nflagged", 123, 448, 400, 27, INK, bold=True)
-    draw.text((666, 333), "0 / 4", font=font(77, bold=True), fill=GREEN)
-    lines(draw, "legitimate pages\nfalsely flagged", 672, 448, 410, 27, INK, bold=True)
+    # 6: the fresh final-build run, including inconclusive results.
+    canvas, draw = base(6, "Fresh 80-page on-device evaluation", "Archived text snapshots  •  79 completed checks on-device  •  not live-browsing accuracy")
+    lines(draw, "We tested the warning—and its uncertainty.", 72, 154, 1110, 39, INK, bold=True)
+    draw.rounded_rectangle((76, 271, 582, 570), radius=22, fill="#f0ded8")
+    draw.rounded_rectangle((622, 271, 1128, 570), radius=22, fill="#dceade")
+    draw.text((112, 305), "SCAM PAGES  ·  40", font=font(19, bold=True), fill=INK)
+    draw.text((110, 345), "30 / 40", font=font(69, bold=True), fill=RED)
+    draw.text((115, 439), "warned", font=font(27, bold=True), fill=INK)
+    draw.text((115, 511), "9 unsure  ·  0 safe  ·  1 timeout", font=font(19), fill=INK)
+    draw.text((658, 305), "LEGITIMATE PAGES  ·  40", font=font(19, bold=True), fill=INK)
+    draw.text((656, 345), "1 / 40", font=font(69, bold=True), fill=RED)
+    draw.text((661, 439), "falsely flagged", font=font(27, bold=True), fill=INK)
+    draw.text((661, 511), "21 unsure  ·  18 safe  ·  0 errors", font=font(19), fill=INK)
     slides.append(canvas)
 
     # 7: give the family a concrete action.

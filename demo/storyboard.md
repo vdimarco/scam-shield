@@ -1,6 +1,6 @@
 # Scam Shield judge video
 
-The [70-second judge cut](scam-shield-judge-final.mp4) has the existing ElevenLabs Faye
+The [80-second judge cut](scam-shield-judge-final.mp4) has the ElevenLabs Faye
 [voice](voiceover-script.md), [English subtitles](scam-shield-judge-final.srt), restrained
 motion highlights, and an actual recording of Chrome's native Scam Shield side panel. The
 fictional parcel page and older-adult portrait are labelled illustrations. The film shows two
@@ -16,7 +16,7 @@ updated film and WebVTT are live on the [Vercel demo](https://scam-shield-landin
 | --- | --- | --- |
 | 0:00–0:29 | An illustrative grandmother scenario, a fictional parcel page, and the hosted checker result. | The [hosted screenshot](hosted-on-device-proof.png) reports on-device inference in Chrome. It is a separate observed run from the extension capture. |
 | 0:29–0:37 | Private screening is enabled in the installed extension, which flags the fictional parcel page and offers a concrete next step. | The right side is the first 5.6 seconds of an [11-second recording](extension-check-on-device.webm) of Chrome's **native side panel** while the local parcel fixture tab remained active. The page on the left is a still from that fixture. This is an edited split view, not an uninterrupted browser-window screen recording. The [observation](extension-check-on-device.json) records Chrome 157, model availability `available`, site `127.0.0.1`, risk `suspicious`, and the exact source text “This page's content was checked on this computer.” The final cut ends before the requested cloud second-opinion action. |
-| 0:37–1:10 | A small synthetic scorecard, concrete protective steps, and the public checker and source links. | The 4/4 and 0/4 figures are from one eight-page synthetic run. The separate [archived-page evaluation](../evaluation/real-world/README.md) gives a broader bounded test; neither is a live-browsing accuracy estimate. |
+| 0:37–1:20 | The fresh 80-page archived evaluation, concrete protective steps, and the public checker and source links. | The final local-only run gave 30 warnings, 9 unsure results, no safe verdicts, and 1 timeout among 40 scam pages; among 40 legitimate pages it gave 1 false alarm, 21 unsure results, and 18 safe verdicts. All 79 completed checks reported on-device inference. The [method and full results](../evaluation/real-world/README.md) describe the static extraction and limits; this is not a live-browsing accuracy estimate. |
 
 The native side-panel footage is a sequence of actual CDP screenshots, encoded at 24 fps;
 the page still was composited beside it for legibility. There are no simulated product states.

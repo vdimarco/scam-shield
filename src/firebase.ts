@@ -45,5 +45,8 @@ export async function loadRemoteConfig(): Promise<void> {
 export const settings = {
   cloudModel: () => getValue(remoteConfig, "cloud_model").asString(),
   autoScreen: () => getValue(remoteConfig, "auto_screen").asBoolean(),
-  maxPageChars: () => getValue(remoteConfig, "max_page_chars").asNumber(),
+  maxPageChars: () => {
+    const value = getValue(remoteConfig, "max_page_chars").asNumber();
+    return Number.isFinite(value) && value > 0 ? Math.max(1, Math.min(12_000, Math.trunc(value))) : 12_000;
+  },
 };

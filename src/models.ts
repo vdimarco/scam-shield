@@ -1,6 +1,7 @@
 import { getGenerativeModel, InferenceMode, Schema, type Part } from "firebase/ai";
 import { ai, settings } from "./firebase";
-import type { PageSnapshot } from "./page";
+import { textModelOptions } from "./local-model";
+import { describe, type PageSnapshot } from "./page";
 import { accountForPageEvidence, parseVerdict, type Verdict } from "./verdict";
 
 export type { Verdict } from "./verdict";
@@ -30,10 +31,7 @@ const cloudSchema = Schema.object({
 });
 
 const textDeviceParams = {
-  createOptions: {
-    expectedInputs: [{ type: "text" as const, languages: ["en"] }],
-    expectedOutputs: [{ type: "text" as const, languages: ["en"] }],
-  },
+  createOptions: textModelOptions,
   promptOptions: { responseConstraint: deviceSchema },
 };
 const screenshotDeviceParams = { promptOptions: { responseConstraint: deviceSchema } };
@@ -76,19 +74,6 @@ export function hasPromptApi(): boolean {
 /** Must be called from a click handler: Chrome requires it to start the model download. */
 export function prepareLocalModel(onProgress: (fraction: number) => void): Promise<void> {
   return getAmbientScreener().initializeDeviceModel(onProgress);
-}
-
-function describe(page: PageSnapshot): string {
-  return [
-    `Address: ${page.url}`,
-    `Title: ${page.title}`,
-    `Asks for a password: ${page.asksForPassword}`,
-    `Asks for card details: ${page.asksForCard}`,
-    `Forms that send data to another site: ${page.formsPostElsewhere}`,
-    `Links that show one address but go to another: ${page.mismatchedLinks}`,
-    `Page text coverage: ${page.truncated ? "partial; some content was omitted" : "complete"}`,
-    `Page text:\n${page.text}`,
-  ].join("\n");
 }
 
 export async function screenPage(page: PageSnapshot, opts: { requested: boolean }): Promise<Verdict> {
