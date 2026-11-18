@@ -128,7 +128,7 @@ prepareButton.addEventListener("click", async () => {
     });
     await withDeadline(model.initializeDeviceModel((fraction) => {
       progress.value = fraction;
-    }), 180_000);
+    }), 1_200_000);
     privateModel = model;
     privateReady = true;
     privateButton.disabled = false;
