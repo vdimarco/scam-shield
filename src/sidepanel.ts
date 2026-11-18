@@ -1,4 +1,5 @@
 import { loadRemoteConfig, settings } from "./firebase";
+import { DeadlineExceededError, withDeadline } from "./deadline";
 import { hasPromptApi, prepareLocalModel, screenPage, screenScreenshot, secondOpinion, type Verdict } from "./models";
 import { opinionSourceNote } from "./opinion";
 import { snapshotActiveTab, type PageSnapshot } from "./page";
@@ -69,7 +70,6 @@ async function check(requested: boolean, knownPage?: PageSnapshot) {
   if (!requested && (!localReady || !settings.autoScreen())) return;
   if (requested) clearTimeout(timer);
   const request = ++generation;
-  let deadline: number | undefined;
   try {
     const page = knownPage ?? await snapshotActiveTab(settings.maxPageChars());
     if (request !== generation) return;
@@ -82,13 +82,7 @@ async function check(requested: boolean, knownPage?: PageSnapshot) {
     observedPage = snapshot;
     showStatus("Checking…");
     $("site").textContent = new URL(page.url).hostname;
-    // The SDK cannot cancel on-device prompts; this only stops the UI waiting.
-    const verdict = await Promise.race([
-      screenPage(page, { requested }),
-      new Promise<never>((_, reject) => {
-        deadline = window.setTimeout(() => reject(new Error("Check timed out")), 60_000);
-      }),
-    ]);
+    const verdict = await withDeadline(screenPage(page, { requested }), 60_000);
     void bumpLedger(verdict.ranOnDevice).catch((err) => console.warn("Scam Shield: could not save check count", err));
     if (request !== generation) return;
     const latest = await snapshotActiveTab(settings.maxPageChars());
@@ -105,27 +99,31 @@ async function check(requested: boolean, knownPage?: PageSnapshot) {
   } catch (err) {
     if (request !== generation) return;
     console.error("Scam Shield: check failed", err);
-    showStatus("I couldn't check this page.", "Try the Check this page button.");
-  } finally {
-    clearTimeout(deadline);
+    showStatus("I couldn't check this page.", err instanceof DeadlineExceededError
+      ? "The check took too long. Try the Check this page button."
+      : "Try the Check this page button.");
   }
 }
 
 $("enable").addEventListener("click", async () => {
   const bar = $<HTMLProgressElement>("download");
+  const enable = $<HTMLButtonElement>("enable");
   bar.hidden = false;
-  $<HTMLButtonElement>("enable").disabled = true;
+  enable.disabled = true;
   try {
-    await prepareLocalModel((fraction) => (bar.value = fraction));
+    await withDeadline(prepareLocalModel((fraction) => (bar.value = fraction)), 180_000);
     localReady = true;
     $("setup").hidden = true;
     setMode();
     void check(false);
   } catch (err) {
     console.error("Scam Shield: local model unavailable", err);
-    $("setup-text").textContent =
-      "This computer can't run the private checking model. You can still check any page with the button below.";
+    $("setup-text").textContent = err instanceof DeadlineExceededError
+      ? "Private screening is taking longer than expected. Try turning it on again, or check a page manually."
+      : "The private checking model isn't available right now. Try turning it on again, or check a page manually.";
     bar.hidden = true;
+  } finally {
+    if (!localReady) enable.disabled = false;
   }
 });
 
@@ -193,7 +191,8 @@ $("second").addEventListener("click", async () => {
 });
 
 $<HTMLInputElement>("shot").addEventListener("change", async (event) => {
-  const file = (event.target as HTMLInputElement).files?.[0];
+  const input = event.target as HTMLInputElement;
+  const file = input.files?.[0];
   if (!file) return;
   clearTimeout(timer);
   const request = ++generation;
@@ -201,14 +200,18 @@ $<HTMLInputElement>("shot").addEventListener("change", async (event) => {
   showStatus("Checking the screenshot…");
   $("site").textContent = "Screenshot";
   try {
-    const verdict = await screenScreenshot(file);
+    const verdict = await withDeadline(screenScreenshot(file), 60_000);
     void bumpLedger(verdict.ranOnDevice).catch((err) => console.warn("Scam Shield: could not save check count", err));
     if (request !== generation) return;
     showVerdict(null, verdict);
   } catch (err) {
     if (request !== generation) return;
     console.error("Scam Shield: screenshot check failed", err);
-    showStatus("I couldn't check that screenshot.", "Use a PNG or JPEG image.");
+    showStatus("I couldn't check that screenshot.", err instanceof DeadlineExceededError
+      ? "The check took too long. Try the screenshot again."
+      : "Use a PNG or JPEG image.");
+  } finally {
+    if (request === generation) input.value = "";
   }
 });
 

@@ -22,7 +22,13 @@ accuracy benchmark or proof that native crashes were eliminated.
 
 A later [same-case diagnostic](../evaluation/real-world/README.md#difficult-legitimate-pages-and-timeout-probe-november-17-2026) used the on-device model on 20 difficult legitimate archived pages. The unconstrained version produced 14 generic JSON-parse fallbacks in a repeat pass. The one investment scam that had previously timed out completed eight times under each setting: the constrained version called it suspicious eight times, while the unconstrained version returned eight parse-failure `unsure` verdicts. Neither version timed out in those replays, so this does not identify the original stall stage or establish that removing the constraint prevents crashes.
 
-Keep the local JSON response constraint for useful verdicts. The 60-second UI
-deadline stops the panel from waiting indefinitely, but the browser model call
-may continue after that deadline. The native crash remains unresolved; diagnose
-future stalls with the evaluator's session-creation and prompt-stage markers.
+Keep the local JSON response constraint for useful verdicts. The extension now
+bounds page and screenshot checks to 60 seconds and local model setup to 180
+seconds; the hosted live checker bounds its check to 60 seconds. These limits
+return the interface to a retry state when Firebase or Chrome stalls. They do
+not cancel an on-device call already in progress: the installed Firebase SDK
+does not pass its per-request abort signal into Chrome's local Prompt API.
+The native `SIGILL` crash remains unresolved in Chrome's model service.
+Diagnose future stalls with the evaluator's session-creation and prompt-stage
+markers and capture Chrome's [on-device event logs](https://developer.chrome.com/docs/ai/debug-built-in-model)
+for a Chromium bug report.
